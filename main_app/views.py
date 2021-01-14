@@ -9,6 +9,9 @@ from django.contrib.auth import login
 def home (request):
     return render(request, 'home.html')
 
+def about (request):
+    return render(request, 'about.html')
+
 def signup(request):
 
     if request.method == 'POST':
