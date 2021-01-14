@@ -6,8 +6,14 @@ from django.contrib.auth import login
 
 # Create your views here.
 
+<<<<<<< HEAD
 def home (request):
     return render(request, 'home.html')
+=======
+def profile(request):
+    return render(request, 'profile.html')
+
+>>>>>>> master
 
 def about (request):
     return render(request, 'about.html')
