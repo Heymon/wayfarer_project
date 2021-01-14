@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'trips/home.html')
 
 def about(request):
     return render(request, 'about.html')
