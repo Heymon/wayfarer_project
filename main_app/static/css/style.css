@@ -13,3 +13,13 @@ footer {
     padding-top: 0;
     text-align: right;
 }
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.helptext {
+    display: none;
+}
