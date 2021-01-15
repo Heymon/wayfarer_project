@@ -8,16 +8,13 @@ from django.contrib.auth import login
 
 def home (request):
     return render(request, 'home.html')
-    
+
 def profile(request):
     return render(request, 'profile.html')
 
-<<<<<<< HEAD
-=======
 
 def about (request):
     return render(request, 'about.html')
->>>>>>> f9c57f6c4876e5f36d8b3babf921e358cd0bce32
 
 def signup(request):
 
