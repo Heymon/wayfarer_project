@@ -1,6 +1,71 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block navbtn %}
+
+{% endblock %}
+
+
 {% block content %}
 
-<h1>home</h1>
+<h1>Wayfare</h1>
+<div class="container">
+  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img src="{% static 'resources/img20200715_12484396 copy.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{% static 'resources/img20200810_13393635 copy.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="{% static 'resources/img20200810_14252018.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+</div>
 
-{% endblock content %}
+<div class="container">
+  <h2>Wayfare is...</h2>
+  <div class="row">
+    <div class="col-4">
+      <div class="topic-content justify-content-center">
+        <h3>San Francisco, California</h3>
+        <p>San Francisco in the winter</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="topic-content justify-content-center">
+        <h3>Sydney, Australia</h3>
+        <p>Sydney in the winter</p>
+      </div>
+    </div>
+    <div class="col-4">
+      <div class="topic-content justify-content-center">
+        <h3>London, UK</h3>
+        <p>London in the winter</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block modal %}
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
