@@ -5,13 +5,12 @@ urlpatterns = [
     #home route
     path('', views.home, name='home'),
 
+    path('accounts/signup', views.signup, name='signup'),
+    
+    path('', views.profile, name='profile'),
 
     path('about/', views.about),
 
     path('accounts/signup', views.signup, name='signup'),
-
-    path('', views.home, name='home'),
-
-    path('', views.profile, name='profile')
 ]
 
