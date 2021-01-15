@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block navbtn %}
 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -18,5 +19,19 @@
 {% block content %}
 
 <h1>Wayfare</h1>
-
+<div class="container">
+  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="1000">
+        <img src="{% static 'resources/img20200715_12484396 copy.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="1000">
+        <img src="{% static 'resources/img20200810_13393635 copy.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item" data-bs-interval="1000">
+        <img src="{% static 'resources/img20200810_14252018.jpg' %}" class="d-block w-100" alt="...">
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
