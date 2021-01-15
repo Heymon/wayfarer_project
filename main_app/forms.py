@@ -3,7 +3,7 @@ from django.forms import ModelForm, fields
 
 
 
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from .models import Profile
 from django import forms
@@ -33,3 +33,7 @@ class Profile_Form(ModelForm):
         model = Profile
         labels = {'cur_country': 'Current Country'}
         fields = ['cur_country',]
+
+class AuthenticationFormWithInactiveUsersOkay(AuthenticationForm):
+    def confirm_login_allowed(self, user):
+        pass
