@@ -19,7 +19,7 @@ def about (request):
     return render(request, 'about.html')
 
 def signup(request):
-    error = ''
+    error_message = ''
     if request.method == 'POST':
         mutable_POST = request.POST.copy()
         user_country = QueryDict(f'cur_city={mutable_POST.pop("cur_city")[0]}')
@@ -36,11 +36,13 @@ def signup(request):
             login(request, user)
             return redirect('home')
         else:
-            error = user_form.errors
-            print(error)
+            error_message = user_form.errors
+            print(error_message)
+            # return redirect('signup', error_message)
     
+    # error_message = 
     user_form = UserProfileForm()
     profile_form = Profile_Form()
-    context = {'user_form': user_form, 'profile_form': profile_form}
+    context = {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
