@@ -35,7 +35,7 @@ def home (request):
     return render(request, 'home.html', context)
 
 def profile(request):
-    return render(request, 'profile.html')
+    return render(request, 'trips/profile.html')
 
 
 def about (request):
