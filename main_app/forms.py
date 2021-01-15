@@ -31,5 +31,5 @@ class UserProfileForm(UserCreationForm):
 class Profile_Form(ModelForm):
     class Meta:
         model = Profile
-        labels = {'cur_country': 'Current Country'}
-        fields = ['cur_country',]
+        labels = {'cur_city': 'Current City'}
+        fields = ['cur_city',]

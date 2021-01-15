@@ -22,7 +22,7 @@ def signup(request):
     error = ''
     if request.method == 'POST':
         mutable_POST = request.POST.copy()
-        user_country = QueryDict(f'cur_country={mutable_POST.pop("cur_country")[0]}')
+        user_country = QueryDict(f'cur_city={mutable_POST.pop("cur_city")[0]}')
 
         print(request.POST["username"])
         user_form = UserProfileForm(mutable_POST)
