@@ -1,16 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Sign Up</h1>
+{% comment %} {% extends 'home.html' %} {% endcomment %}
 
-<form action="{% url 'signup' %}" method="POST">
-        {% csrf_token %}
-        {{user_form.as_p}}
-        {{profile_form.as_p}}
-        <input type="submit" value="Sign UP">
-        <input type="hidden" name="next" value"{{next}}>
-    
-    </form>
-
+{% comment %} {{ block.super }} {% endcomment %}
 
 {% endblock content %}
+
+{% block pop_up %}
+
+<div>
+    <h1>Sign Up</h1>
+
+    <form action="{% url 'signup' %}" method="POST">
+            {% csrf_token %}
+            {{user_form.as_p}}
+            {{profile_form.as_p}}
+            {% if error_message %}
+                {{error_message}}
+            {% endif %}
+            <input type="submit" value="Sign UP">
+            <input type="hidden" name="next" value"{{next}}>
+        
+    </form>
+    
+</div>
+
+{% endblock pop_up %}

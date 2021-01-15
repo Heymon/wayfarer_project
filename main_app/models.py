@@ -7,7 +7,7 @@ from django.db.models.fields.related import OneToOneField
 
 class Profile(models.Model):
     user = OneToOneField(User, on_delete=CASCADE)
-    cur_country = models.CharField(max_length=100)
+    cur_city = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.user.username} is currently living in {self.cur_country}"
+        return f"{self.user.username} is currently living in {self.cur_city}"
