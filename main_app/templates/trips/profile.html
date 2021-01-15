@@ -1,0 +1,16 @@
+{% extends 'trips/base.html' %}
+{% block content %}
+
+<h1>Cities</h1>
+
+{% for cities in profile %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ city.name }}</span>
+      <p>Description: {{ city.description }}</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

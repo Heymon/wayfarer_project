@@ -11,6 +11,13 @@ from django.contrib.auth import login
 def home (request):
     return render(request, 'home.html')
 
+def profile(request):
+    return render(request, 'profile.html')
+
+
+def about (request):
+    return render(request, 'about.html')
+
 def signup(request):
     error = ''
     if request.method == 'POST':
