@@ -30,11 +30,11 @@
             <li class="nav-item"><a class="nav-link" href="#">About</a></li>
 						{% if user.is_authenticated %}
 						<li class="nav-item"><a class="nav-link" href="#">Cities</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Log Out</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
             <li class="nav-item"><a class="nav-link" href="#">Username</a></li>
 						{% else %}
 						<li class="nav-item"><a class="nav-link" href="#">Sign Up</a></li>
-						<li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Log In</a></li>
 						{% endif %}
             {% comment %} 
             {% add navbar buttons, username, searchbar %}
