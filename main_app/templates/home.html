@@ -64,7 +64,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="{% url 'signup' %}" method="POST">
+        <form action="{% url 'signup' %}" method="POST" class="signup-form">
           {% csrf_token %}
           {{user_form.as_p}}
           {{profile_form.as_p}}
