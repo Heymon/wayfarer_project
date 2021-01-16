@@ -56,6 +56,8 @@
 {% endblock %}
 
 {% block modal %}
+
+{% comment %} {% sign up modal %} {% endcomment %}
 <div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -76,6 +78,8 @@
     </div>
   </div>
 </div>
+
+{% comment %} {% login modal %} {% endcomment %}
 <div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -91,8 +95,6 @@
           <input type="hidden" name="next" value"{{next}}>
       
         </form>
-      
-      </form>
       </div>
     </div>
   </div>
