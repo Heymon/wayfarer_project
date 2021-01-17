@@ -1,6 +1,6 @@
 from django.core.files.base import ContentFile
 from django.http.request import QueryDict
-from main_app.models import Profile
+from main_app.models import Profile, Post
 from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form
 from django.shortcuts import render, redirect
 
@@ -19,7 +19,7 @@ def home (request):
     return render(request, 'home.html', context)
 
 def profile(request):
-    posts = all_posts
+    posts = Post.objects.all()
     context = { 'posts': posts}
     return render(request, 'trips/profile.html', context)
 
@@ -78,31 +78,28 @@ def update(request):
 
 
 def show_post(request, post_id):
-    print(post_id)
-    the_post = ''
-    for post in all_posts:
-        if post.id == post_id:
-            the_post = post
+    # print(post_id)
+    post = Post.objects.get(id=post_id)
 
-    context = {'post': the_post}
+    context = {'post': post}
     return render(request, 'trips/show.html', context)
 
 
-class Post:
+# class Post:
 
-    def __init__(self, id, img, location, title, text, user_id):
-        self.id = id
-        self.img = img
-        self.location = location
-        self.title = title
-        self.text = text
-        self.user_id = user_id
+#     def __init__(self, id, img, location, title, text, user_id):
+#         self.id = id
+#         self.img = img
+#         self.location = location
+#         self.title = title
+#         self.text = text
+#         self.user_id = user_id
         
 
-all_posts = [
-    Post(1, "https://picsum.photos/200", "place", "fun day", "words of said fun day", "user4"),
-    Post(2, "https://picsum.photos/200", "place", "funt day", "words of said funt day", "user3"),
-    Post(3, "https://picsum.photos/200", "place", "funish day", "words of said funish day", "user42"),
-    Post(4, "https://picsum.photos/200", "place", "not fun day", "words of said not fun day", "user3"),
+# all_posts = [
+#     Post(1, "https://picsum.photos/200", "place", "fun day", "words of said fun day", "user4"),
+#     Post(2, "https://picsum.photos/200", "place", "funt day", "words of said funt day", "user3"),
+#     Post(3, "https://picsum.photos/200", "place", "funish day", "words of said funish day", "user42"),
+#     Post(4, "https://picsum.photos/200", "place", "not fun day", "words of said not fun day", "user3"),
 
-]
+# ]
