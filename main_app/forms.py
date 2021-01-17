@@ -3,7 +3,7 @@ from django.forms import ModelForm, fields
 
 
 
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UserChangeForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from .models import Profile
 from django import forms
@@ -38,19 +38,10 @@ class AuthenticationFormWithInactiveUsersOkay(AuthenticationForm):
     def confirm_login_allowed(self, user):
         pass
         
-class User_Update_Form(UserChangeForm):
+class User_Update_Form(ModelForm):
     first_name = forms.CharField(label= "First Name")
     last_name = forms.CharField(label= "Last Name")
 
     class Meta:
         model = User
         fields = ("first_name", "last_name")
-
-    # def save(self, commit=True):
-    #     user = super(UserProfileForm, self).save(commit=False)
-    #     user.first_name = self.cleaned_data["first_name"]
-    #     user.last_name = self.cleaned_data["last_name"]
-
-    #     if commit:
-    #         user.save()
-    #     return user
