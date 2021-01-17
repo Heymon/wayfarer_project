@@ -64,6 +64,9 @@
           {% csrf_token %}
           {{user_form.as_p}}
           {{profile_form.as_p}}
+          {% comment %} {% if error_message %}
+                {{error_message}}
+            {% endif %} {% endcomment %}
           <input type="submit" value="Sign Up">
           <input type="hidden" name="next" value"{{next}}>
       
