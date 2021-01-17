@@ -1,3 +1,4 @@
+from django.core.files.base import ContentFile
 from django.http.request import QueryDict
 from main_app.models import Profile
 from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form
@@ -18,7 +19,9 @@ def home (request):
     return render(request, 'home.html', context)
 
 def profile(request):
-    return render(request, 'trips/profile.html')
+    posts = all_posts
+    context = { 'posts': posts}
+    return render(request, 'trips/profile.html', context)
 
 
 def about (request):
@@ -72,3 +75,34 @@ def update(request):
     profile_form = Profile_Form(instance=user.profile)
     context = {'profile_form': profile_form, 'user_update_form': user_update_form}
     return render(request, 'trips/update.html', context)
+
+
+def show_post(request, post_id):
+    print(post_id)
+    the_post = ''
+    for post in all_posts:
+        if post.id == post_id:
+            the_post = post
+
+    context = {'post': the_post}
+    return render(request, 'trips/show.html', context)
+
+
+class Post:
+
+    def __init__(self, id, img, location, title, text, user_id):
+        self.id = id
+        self.img = img
+        self.location = location
+        self.title = title
+        self.text = text
+        self.user_id = user_id
+        
+
+all_posts = [
+    Post(1, "https://picsum.photos/200", "place", "fun day", "words of said fun day", "user4"),
+    Post(2, "https://picsum.photos/200", "place", "funt day", "words of said funt day", "user3"),
+    Post(3, "https://picsum.photos/200", "place", "funish day", "words of said funish day", "user42"),
+    Post(4, "https://picsum.photos/200", "place", "not fun day", "words of said not fun day", "user3"),
+
+]

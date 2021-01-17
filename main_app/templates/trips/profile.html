@@ -3,11 +3,13 @@
 
 <h1>Cities</h1>
 
-{% for cities in profile %}
+{% for post in posts %}
   <div class="card">
     <div class="card-content">
-      <span class="card-title">{{ city.name }}</span>
-      <p>Description: {{ city.description }}</p>
+      <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
+      <img src="{{post.img}}" alt="Photo of {{post.location}}">
+      <p>where: {{ post.location }}</p>
+      <p>Description: {{ post.text }}</p>
     </div>
   </div>
 {% endfor %}
