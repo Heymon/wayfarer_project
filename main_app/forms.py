@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 from .models import Profile
 from django import forms
 
-class UserProfileForm(UserCreationForm):
+class User_Profile_Form(UserCreationForm):
     email = forms.EmailField(label= "Email")
     first_name = forms.CharField(label= "First Name")
     last_name = forms.CharField(label= "Last Name")
@@ -19,7 +19,7 @@ class UserProfileForm(UserCreationForm):
         fields = ("username", "email", "first_name", "last_name")
 
     def save(self, commit=True):
-        user = super(UserProfileForm, self).save(commit=False)
+        user = super(User_Profile_Form, self).save(commit=False)
         user.first_name = self.cleaned_data["first_name"]
         user.last_name = self.cleaned_data["last_name"]
         user.email = self.cleaned_data["email"]
