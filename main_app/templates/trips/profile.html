@@ -1,22 +1,104 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Cities</h1>
+{% load columns %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" style="background: #49A69C;">
+      {% for item in col %}
+        <div class="cities">{{ Cities }}
+        {% for post in posts %}
+          <div class="card">
+            <div class="card-content">
+              <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
+              <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="toggle" data-target="#cities">
+                  <i class="glyphicon glyphicon-plus"></i>
+                </button>
 
-{% for post in posts %}
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
-      <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-      <p>where: {{ post.location }}</p>
-      <p>Description: {{ post.text }}</p>
+                <div id="cities">
+                  <div class="card-content">
+                    <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
+                    <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
+                      <p>where: {{ post.location }}</p>
+                      <p>Description: {{ post.text }}</p>
+
+                      <div class="post">
+                        <button type="button" id="post" class="btn">Post A Trip</button>
+                    </div>
+                    <div id="myForm" class="hide">
+                        <form action="/echo/html/" id="popForm" method="get">
+                            <div>
+                                <label for="title">Title:</label>
+                                <input type="title" name="title" id="title" class="form-control input-md">
+                                
+                                <label for="about">Describe Your Trip:</label>
+                                <textarea rows="10" name="about" id="about" class="form-control input-md"></textarea>
+                                <button type="button" class="btn btn-primary" data-loading-text="Sending info.."><em class="icon-ok"></em> Save</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="result"></div>
+                    
+                  </div>
+                </div>
+            </div>
+            
+            <div class="card">
+              <div class="card-content">
+                <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
+                <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="toggle" data-target="#cities">
+                    <i class="glyphicon glyphicon-plus"></i>
+                  </button>
+  
+                  <div id="cities">
+                    <div class="card-content">
+                      <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
+                      <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
+                        <p>where: {{ post.location }}</p>
+                        <p>Description: {{ post.text }}</p>
+
+                        <div class="post">
+                          <button type="button" id="post" class="btn">Post A Trip</button>
+                      </div>
+                      <div id="myForm" class="hide">
+                          <form action="/echo/html/" id="popForm" method="get">
+                              <div>
+                                  <label for="title">Title:</label>
+                                  <input type="title" name="title" id="title" class="form-control input-md">
+                                  
+                                  <label for="about">Describe Your Trip:</label>
+                                  <textarea rows="10" name="about" id="about" class="form-control input-md"></textarea>
+                                  <button type="button" class="btn btn-primary" data-loading-text="Sending info.."><em class="icon-ok"></em> Save</button>
+                              </div>
+                          </form>
+                      </div>
+                      <div id="result"></div>
+                      
+                    </div>
+                  </div>
+              </div>
+          </div>
+        </div>  
     </div>
+    
+    <div class="col-md-8" style="background: #F0F2F2;">
+      <div class="container">
+        <div class="card" style="width: 16rem;">
+          <img id class="card-img-top" src="" alt="card img">
+          <div class="card body">
+            <h5 class="users_name">John Doe</h5>
+            <h6 class="card-subtitle mb-2 text-muted">traveler101</h6>
+            <p class="text">quick info of user</p>
+            <a href="#" class="btn btn-secondary">Change Pic</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
-
-{% empty %}
-
-<h2>No posts yet</h2>
-
-{% endfor %}
-
+</div>
+</div>
 {% endblock %}
