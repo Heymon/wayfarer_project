@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% load columns %}
+
 <div class="container">
   <div class="row">
     <div class="col-md-4" style="background: #49A69C;">
-      {% for item in col %}
+  
         <div class="cities">{{ Cities }}
         {% for post in posts %}
           <div class="card">
@@ -58,7 +58,7 @@
                       <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
                         <p>where: {{ post.location }}</p>
                         <p>Description: {{ post.text }}</p>
-
+{% endfor %}
                         <div class="post">
                           <button type="button" id="post" class="btn">Post A Trip</button>
                       </div>
@@ -98,7 +98,25 @@
 
     </div>
 
+    
+
   </div>
+
+  <div class="col-md-8" style="background: #F0F2F2;">
+    <div class="container">
+      <div class="card" style="width: 16rem;">
+        <img id class="card-img-top" src="" alt="card img">
+        <div class="card body">
+          <h5 class="users_name">John Doe</h5>
+          <h6 class="card-subtitle mb-2 text-muted">traveler101</h6>
+          <p class="text">quick info of user</p>
+          <a href="#" class="btn btn-secondary">Change Pic</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
 </div>
 </div>
 {% endblock %}
