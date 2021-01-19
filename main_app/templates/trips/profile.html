@@ -4,16 +4,17 @@
 
 
 <!--Cities-->
+<div class="container-fluid">
   <div class="row">
-    <div class="col-5" >
+    <div class="col-4" >
       <div class="card" style="width: 30rem; background: #49A69C">
         <img src="{{ user.profile.profile_img }}" alt="profile pic">
         <div class="card body" style="background: #49A69C;">
           {{user.first_name}} {{user.last_name}}
-          <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>
-          <p class="text">{{user.bio}}</p>
-          {{ user.profile.cur_city }}
-          <br>{{user.date_joined}}
+          <h6 class="card-subtitle mb-2">Username - {{user.username}}</h6>
+          <p class="text">Bio - {{user.bio}}</p>
+          <p class="profile-show">City - {{ user.profile.cur_city }}</p>
+          <p class="user-date-joined">Date joined - {{user.date_joined}}</p>
           <a href=" {% url 'update' %}" class="btn btn-info">Edit Profile</a>
         </div>
       
@@ -41,12 +42,14 @@
     </div>
 
     <!--Cities description-->
-    <div class="col-6">
+    <div class="col-8">
       <div class="tab-content">
         <div class="tab-pane active" id="aspen" role="tabpanel">
-          <h2>ASPEN</h2>
-          <div class="content">
+          <div class="city-content">
+            <div class="inner-content">
+            <h2>ASPEN</h2>
             <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. </p>
+            </div>
             <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" style=" width:250px; height:250px;" alt="aspen">
           </div> 
         </div>
@@ -83,16 +86,18 @@
       {% for post in posts %}
       <div class="card">
         <div class="card-content">
-                    <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
                     <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
+                    <div class="side-text">
+                    <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
                     <p>where: {{ post.location }}</p>
                     <p>Description: {{ post.text }}</p>
+                    </div>
         </div>
       </div>
       {% endfor %}
     </div>
   </div>
-    
+</div>
 
   
 
