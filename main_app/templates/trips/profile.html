@@ -1,122 +1,102 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
 
-<div class="container">
+<!--Cities-->
   <div class="row">
-    <div class="col-md-4" style="background: #49A69C;">
-  
-        <div class="cities">{{ Cities }}
-        {% for post in posts %}
-          <div class="card">
-            <div class="card-content">
-              <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
-              <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-                <button type="button" class="btn btn-primary btn-sm" data-toggle="toggle" data-target="#cities">
-                  <i class="glyphicon glyphicon-plus"></i>
-                </button>
+    <div class="col" style="background: #49A69C;">
+        <h1>Cities</h1> 
+      <div role="tabpanel">
+      <div class="list-group" id="list" role="tablist">
+        <a class="list-group-item list-group-item-action active list-group-item-info" data-bs-toggle="list" href="#aspen" role="tab">Aspen</a>
 
-                <div id="cities">
-                  <div class="card-content">
-                    <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
-                    <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-                      <p>where: {{ post.location }}</p>
-                      <p>Description: {{ post.text }}</p>
+        <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#fairbanks" role="tab">Fairbanks</a>
 
-                      <div class="post">
-                        <button type="button" id="post" class="btn">Post A Trip</button>
-                    </div>
-                    <div id="myForm" class="hide">
-                        <form action="/echo/html/" id="popForm" method="get">
-                            <div>
-                                <label for="title">Title:</label>
-                                <input type="title" name="title" id="title" class="form-control input-md">
-                                
-                                <label for="about">Describe Your Trip:</label>
-                                <textarea rows="10" name="about" id="about" class="form-control input-md"></textarea>
-                                <button type="button" class="btn btn-primary" data-loading-text="Sending info.."><em class="icon-ok"></em> Save</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="result"></div>
-                    
-                  </div>
-                </div>
+        <a class="list-group-item list-group-item-action list-group-item-info" data-bs-toggle="list" href="#bigbear" role="tab">Big Bear</a>
+
+        <a class="list-group-item list-group-item-action list-group-item-info" data-bs-toggle="list" href="#crestedbutte" role="tab">Crested butte</a>
+
+        <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#newyork" role="tab" >New York</a>
+      </div>
+    </div>
+  </div>
+
+    <!--Cities description-->
+    <div class="col-6">
+      <div class="tab-content">
+        <div class="tab-pane active" id="aspen" role="tabpanel">ASPEN
+          <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" style=" width:250px; height:250px; margin-left:300px;" alt="aspen">
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+          </div>
+
+        <div class="tab-pane" id="fairbanks" role="tabpanel">FAIRBANKS
+          <img src="{% static 'resources/fairbanks.jpeg' %}" class="img-thumbnail" style=" width:250px; height:250px; margin-left:300px;" alt="fairbanks">
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </div>
+
+        <div class="tab-pane" id="bigbear" role="tabpanel">BIG BEAR
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </div>
+
+        <div class="tab-pane" id="crestedbutte" role="tabpanel">CRESTED BUTTE
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </div>
+
+        <div class="tab-pane" id="newyork" role="tabpanel">NEW YORK
+          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+        </div>
+      </div>
+    </div>
+
+
+
+   
+    <!--profile id-->
+    <div class="col">
+      <div class="col-3">
+        <div class="container">
+          
+          <div class="card" style="width: 20rem;" >
+            {{ user.profile.profile_img}}
+            <div class="card body" style="background: #49A69C;">
+              {{user.first_name}} {{user.last_name}}
+              <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>
+              <p class="text">{{user.bio}}</p>
+              {{ user.profile.cur_city }}
+              <a href="#" class="btn btn-secondary">Change Pic</a>
             </div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+
+
+<!--
+  <div class="post">
+    <button type="button" id="post" class="btn">Post A Trip</button>
+</div>
+<div id="myForm" class="hide">
+    <form action="/echo/html/" id="popForm" method="get">
+        <div>
+            <label for="title">Title:</label>
+            <input type="title" name="title" id="title" class="form-control input-md">
             
-            <div class="card">
-              <div class="card-content">
-                <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
-                <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-                  <button type="button" class="btn btn-primary btn-sm" data-toggle="toggle" data-target="#cities">
-                    <i class="glyphicon glyphicon-plus"></i>
-                  </button>
-  
-                  <div id="cities">
-                    <div class="card-content">
-                      <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
-                      <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-                        <p>where: {{ post.location }}</p>
-                        <p>Description: {{ post.text }}</p>
-{% endfor %}
-                        <div class="post">
-                          <button type="button" id="post" class="btn">Post A Trip</button>
-                      </div>
-                      <div id="myForm" class="hide">
-                          <form action="/echo/html/" id="popForm" method="get">
-                              <div>
-                                  <label for="title">Title:</label>
-                                  <input type="title" name="title" id="title" class="form-control input-md">
-                                  
-                                  <label for="about">Describe Your Trip:</label>
-                                  <textarea rows="10" name="about" id="about" class="form-control input-md"></textarea>
-                                  <button type="button" class="btn btn-primary" data-loading-text="Sending info.."><em class="icon-ok"></em> Save</button>
-                              </div>
-                          </form>
-                      </div>
-                      <div id="result"></div>
-                      
-                    </div>
-                  </div>
-              </div>
-          </div>
-        </div>  
-    </div>
-    
-    <div class="col-md-8" style="background: #F0F2F2;">
-      <div class="container">
-        <div class="card" style="width: 16rem;">
-          <img id class="card-img-top" src="" alt="card img">
-          <div class="card body">
-            <h5 class="users_name">John Doe</h5>
-            <h6 class="card-subtitle mb-2 text-muted">traveler101</h6>
-            <p class="text">quick info of user</p>
-            <a href="#" class="btn btn-secondary">Change Pic</a>
-          </div>
+            <label for="about">Describe Your Trip:</label>
+            <textarea rows="10" name="about" id="about" class="form-control input-md"></textarea>
+            <button type="button" class="btn btn-primary
+            
+            
+            " data-loading-text="Sending info.."><em class="icon-ok"></em> Save</button>
         </div>
-      </div>
-
-    </div>
-
-    
-
-  </div>
-
-  <div class="col-md-8" style="background: #F0F2F2;">
-    <div class="container">
-      <div class="card" style="width: 16rem;">
-        <img id class="card-img-top" src="" alt="card img">
-        <div class="card body">
-          <h5 class="users_name">John Doe</h5>
-          <h6 class="card-subtitle mb-2 text-muted">traveler101</h6>
-          <p class="text">quick info of user</p>
-          <a href="#" class="btn btn-secondary">Change Pic</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-  
+    </form>
 </div>
+<div id="result"></div>
 </div>
+-->
+
+
+
 {% endblock %}
+
