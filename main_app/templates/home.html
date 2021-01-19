@@ -8,41 +8,57 @@
 {% block content %}
 </br> 
 {% comment %} replace br with css later {% endcomment %}
-<div class="container">
-  <div id="carousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="2000">
-        <img src="{% static 'resources/goldengatebridge-unsplash.jpg' %}" class="d-block w-100" alt="Golden Gate Bridge">
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="{% static 'resources/sydneyoperahouse-unsplash.jpg' %}" class="d-block w-100" alt="Sydney Opera House">
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="{% static 'resources/bigben-unsplash.jpg' %}" class="d-block w-100" alt="Big Ben Clock Tower">
+<div class="container" id="carousel-container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src="{% static 'resources/goldengatebridge-unsplash.jpg' %}" class="d-block mx-auto carousel-img" alt="Golden Gate Bridge">
+          </div>
+
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="{% static 'resources/sydneyoperahouse-unsplash.jpg' %}" class="d-block mx-auto carousel-img" alt="Sydney Opera House">
+          </div>
+
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="{% static 'resources/bigben-unsplash.jpg' %}" class="d-block mx-auto carousel-img" alt="Big Ben Clock Tower">
+          </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#carousel" role="button" data-bs-slide="prev">
+          <i class="far fa-arrow-alt-circle-left"></i>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-bs-slide="next">
+          <i class="far fa-arrow-alt-circle-right"></i>
+        </a>
       </div>
     </div>
   </div>
 </div>
 
+<div class="container" id="home-footer-title">
+  <h2>Wayfarer is...</h2>
+</div>
 <div class="container">
-  <h2>Wayfare is...</h2>
   <div class="row">
     <div class="col-4">
-      <div class="topic-content justify-content-center">
-        <h3>San Francisco, California</h3>
-        <p>San Francisco in the winter</p>
+      <div class="topic-content">
+        <h3>San Francisco, CA</h3>
+        <p>From holiday lighting to stellar theater performances, San Francisco's winter season is a great time of year to enjoy endless attractions.</p>
       </div>
     </div>
     <div class="col-4">
-      <div class="topic-content justify-content-center">
+      <div class="topic-content">
         <h3>Sydney, Australia</h3>
-        <p>Sydney in the winter</p>
+        <p>Sydney's winter hosts a multitude of events that are bound to fit everyones need's from arts and cultural festivals to sporting events. </p>
       </div>
     </div>
     <div class="col-4">
-      <div class="topic-content justify-content-center">
+      <div class="topic-content">
         <h3>London, UK</h3>
-        <p>London in the winter</p>
+        <p>Winter is a quieter time to visit London and enjoy some of the city's many attractions or visit some of the world's best museums without being overly crowded.</p>
       </div>
     </div>
   </div>
