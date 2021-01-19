@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
                 ('profile_img', models.URLField(default='https://picsum.photos/200', max_length=100)),
                 ('cur_city', models.CharField(max_length=100)),
                 ('user', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                
             ],
         ),
         migrations.CreateModel(
