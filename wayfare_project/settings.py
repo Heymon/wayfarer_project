@@ -126,3 +126,19 @@ STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/profile/'
 
 LOGOUT_REDIRECT_URL = '/'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'No Reply <noreplay@example.com>'
+
+# no reply
+EMAIL_HOST_USER = 'noreply.wayfare@gmail.com'
+EMAIL_HOST_PASSWORD = 'noreplypassword'
+
+# team email
+# EMAIL_HOST_USER = 'thecodenators@gmail.com'
+# EMAIL_HOST_PASSWORD = 'wayfarepassword'

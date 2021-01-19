@@ -7,9 +7,23 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login
 
+
+from django.core.mail import EmailMessage, send_mail
+
 # Create your views here.
 
+#=================================ROUTES====================================#
+
 def home (request):
+    # send_mail(
+    #     'subject this',
+    #     'hello future',
+    #     'email@example.com',
+    #     ['rcavalleir@gmail.com'],
+    #     fail_silently=False
+    # )
+    
+
     # error_message= error_message
     authentication_form = AuthenticationForm()
     user_form = User_Profile_Form()
@@ -20,7 +34,7 @@ def home (request):
 
 def profile(request):
     posts = Post.objects.all()
-    context = { 'posts': posts}
+    context = {'cities': cities, 'posts': posts}
     return render(request, 'trips/profile.html', context)
 
 
@@ -42,6 +56,7 @@ def signup(request):
             user_profile = profile.save(commit=False)
             user_profile.user = user
             user_profile.save()
+            send_email(user)
             login(request, user)
             return redirect('profile')
         else:
@@ -84,3 +99,37 @@ def show_post(request, post_id):
 
     context = {'post': post}
     return render(request, 'trips/show.html', context)
+
+
+
+# ========================== FUNCTIONS =============================== #
+
+
+def send_email(user):
+    print(user)
+    email_subject = 'WELCOME TO WAYFARE!'
+    email_message = f'HELLO {user.first_name}!\n\nTHANK YOU FOR CREATING A WAYFARE ACCOUNT!'
+    email = EmailMessage( email_subject, email_message, to=[f'{user.email}'], reply_to=['deesoaks@mail.com '])
+    email.send()
+
+
+
+#fake db for cities seed data
+class City:
+
+    def __init__(self, id, name, description, img="#"):
+        self.id = id
+        self.name = name
+        self.description = description
+        self.img = img
+        
+descrip = "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi."
+    
+cities = [
+
+    City("one", "Fairbanks", descrip ),
+    City("two", "Big Bear", descrip ),
+    City("three", "Crested Butte", descrip ),
+    City("four", "New York", descrip ),
+    
+]
