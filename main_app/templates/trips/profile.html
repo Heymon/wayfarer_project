@@ -58,11 +58,12 @@
         <div class="container">
           
           <div class="card" style="width: 20rem;" >
-            <img id class="card-img-top" src="" alt="card img">
+            {{ user.profile.profile_img}}
             <div class="card body" style="background: #49A69C;">
-              <h5 class="users_name">John Doe</h5>
-              <h6 class="card-subtitle mb-2 text-muted">traveler101</h6>
-              <p class="text">quick info of user</p>
+              {{user.first_name}} {{user.last_name}}
+              <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>
+              <p class="text">{{user.bio}}</p>
+              {{ user.profile.cur_city }}
               <a href="#" class="btn btn-secondary">Change Pic</a>
             </div>
           </div>
