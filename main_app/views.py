@@ -84,7 +84,8 @@ def update(request):
         if user_update_form.is_valid():
             user_update_form.save()
             profile_form.save()
-            print('isvalid') 
+            print('isvalid')
+            return redirect('profile')
 
     user_update_form = User_Update_Form(instance=user)
     profile_form = Profile_Form(instance=user.profile)

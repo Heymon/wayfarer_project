@@ -5,26 +5,40 @@
 
 <!--Cities-->
   <div class="row">
-    <div class="col" style="background: #49A69C;">
-        <h1>Cities</h1> 
-      <div role="tabpanel">
-      <div class="list-group" id="list" role="tablist">
-        <a class="list-group-item list-group-item-action active list-group-item-info" data-bs-toggle="list" href="#aspen" role="tab">Aspen</a>
+    <div class="col-5" >
+      <div class="card" style="width: 30rem; background: #49A69C">
+        <img src="{{ user.profile.profile_img }}" alt="profile pic">
+        <div class="card body" style="background: #49A69C;">
+          {{user.first_name}} {{user.last_name}}
+          <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>
+          <p class="text">{{user.bio}}</p>
+          {{ user.profile.cur_city }}
+          <br>{{user.date_joined}}
+          <a href=" {% url 'update' %}" class="btn btn-info">Edit Profile</a>
+        </div>
+      
+    
         
-        {% for city in cities %}
-        <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#{{city.id}}" role="tab">{{city.name}}</a>
-        {% endfor %}
+        <h1>Cities</h1> 
+        <div role="tabpanel">
+          <div class="list-group" id="list" role="tablist">
+            <a class="list-group-item list-group-item-action active list-group-item-info" data-bs-toggle="list" href="#aspen" role="tab">Aspen</a>
+            
+            {% for city in cities %}
+            <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#{{city.id}}" role="tab">{{city.name}}</a>
+            {% endfor %}
 
-        {% comment %} <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#fairbanks" role="tab">Fairbanks</a>
+            {% comment %} <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#fairbanks" role="tab">Fairbanks</a>
 
-        <a class="list-group-item list-group-item-action list-group-item-info" data-bs-toggle="list" href="#bigbear" role="tab">Big Bear</a>
+            <a class="list-group-item list-group-item-action list-group-item-info" data-bs-toggle="list" href="#bigbear" role="tab">Big Bear</a>
 
-        <a class="list-group-item list-group-item-action list-group-item-info" data-bs-toggle="list" href="#crestedbutte" role="tab">Crested butte</a>
+            <a class="list-group-item list-group-item-action list-group-item-info" data-bs-toggle="list" href="#crestedbutte" role="tab">Crested butte</a>
 
-        <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#newyork" role="tab" >New York</a> {% endcomment %}
+            <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#newyork" role="tab" >New York</a> {% endcomment %}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
     <!--Cities description-->
     <div class="col-6">
@@ -77,31 +91,10 @@
       </div>
       {% endfor %}
     </div>
-
-
-
-   
-    <!--profile id-->
-    <div class="col">
-      <div class="col-3">
-        <div class="container">
-          
-          <div class="card" style="width: 20rem;" >
-            {{ user.profile.profile_img}}
-            <div class="card body" style="background: #49A69C;">
-              {{user.first_name}} {{user.last_name}}
-              <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>
-              <p class="text">{{user.bio}}</p>
-              <p>{{user.date_joined}}</p>
-              {{ user.profile.cur_city }}
-              <a href="#" class="btn btn-secondary">Change Pic</a>
-            </div>
-          </div>
-        </div>
-    </div>
-    </div>
   </div>
+    
 
+  
 
 <!--
   <div class="post">
