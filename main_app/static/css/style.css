@@ -38,6 +38,11 @@ footer {
     display: none;
 }
 
+.tab-pane .content{
+
+    display: flex;
+}
+
 /* Profile toggles */
 #cities {
     -webkit-transition: width 2s ease;

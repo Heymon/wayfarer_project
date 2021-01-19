@@ -25,10 +25,13 @@
     <!--Cities description-->
     <div class="col-6">
       <div class="tab-content">
-        <div class="tab-pane active" id="aspen" role="tabpanel">ASPEN
-          <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" style=" width:250px; height:250px; margin-left:300px;" alt="aspen">
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-          </div>
+        <div class="tab-pane active" id="aspen" role="tabpanel">
+          <h2>ASPEN</h2>
+          <div class="content">
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. </p>
+            <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" style=" width:250px; height:250px;" alt="aspen">
+          </div> 
+        </div>
 
         <div class="tab-pane" id="fairbanks" role="tabpanel">FAIRBANKS
           <img src="{% static 'resources/fairbanks.jpeg' %}" class="img-thumbnail" style=" width:250px; height:250px; margin-left:300px;" alt="fairbanks">
@@ -47,6 +50,18 @@
           <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
         </div>
       </div>
+
+      <h2>POSTS</h2>
+      {% for post in posts %}
+      <div class="card">
+        <div class="card-content">
+                    <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
+                    <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
+                    <p>where: {{ post.location }}</p>
+                    <p>Description: {{ post.text }}</p>
+        </div>
+      </div>
+      {% endfor %}
     </div>
 
 
@@ -63,6 +78,7 @@
               {{user.first_name}} {{user.last_name}}
               <h6 class="card-subtitle mb-2 text-muted">{{user.username}}</h6>
               <p class="text">{{user.bio}}</p>
+              <p>{{user.date_joined}}</p>
               {{ user.profile.cur_city }}
               <a href="#" class="btn btn-secondary">Change Pic</a>
             </div>
