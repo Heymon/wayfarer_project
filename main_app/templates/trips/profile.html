@@ -2,27 +2,27 @@
 {% block content %}
 
 
-<div class="container">
+
   <div class="row">
     <div class="col" style="background: #49A69C;">
-      <div class="list-group list-group-flush" id="list-tab" role="tablist">
-        <a class="list-group-item list-group-item-action active" id="list-aspen-list" data-toggle="list" href="#list-aspen" role="tab" aria-controls="aspen">Aspen</a>
+      <div class="list-group" id="list" role="tablist">
+        <a class="list-group-item list-group-item-action active" data-toggle="list" href="#aspen" role="tab">Aspen</a>
 
-        <a class="list-group-item list-group-item-action" id="list-fairbanks-list" data-toggle="list" href="#list-fairbanks" role="tab" aria-controls="fairbanks">Fairbanks</a>
+        <a class="list-group-item list-group-item-action"  data-toggle="list" href="#fairbanks" role="tab">Fairbanks</a>
 
-        <a class="list-group-item list-group-item-action" id="list-bigbear-list" data-toggle="list" href="#list-bigbear" role="tab" aria-controls="bigbear">Big Bear</a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#bigbear" role="tab">Big Bear</a>
 
-        <a class="list-group-item list-group-item-action" id="list-crestedbutte-list" data-toggle="list" href="#list-crestedbutte" role="tab" aria-controls="crestedbutte">Crested butte</a>
+        <a class="list-group-item list-group-item-action" data-toggle="list" href="#crestedbutte" role="tab">Crested butte</a>
 
-        <a class="list-group-item list-group-item-action" id="list-newyork-list" data-toggle="list" href="#list-newyork" role="tab" aria-controls="newyork">New York</a>
+        <a class="list-group-item list-group-item-action"  data-toggle="list" href="#newyork" role="tab" >New York</a>
       </div>
     </div>
 
     <div class="col-6">
-      <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="list-aspen" role="tabpanel" aria-labelledby="list-aspen-list">ASPEN</div>
+      <div class="tab-content">
+        <div class="tab-pane active" id="aspen" role="tabpanel">ASPEN</div>
 
-        <div class="tab-pane fade" id="list-fairbanks" role="tabpanel" aria-labelledby="list-fairbanks-list">FAIRBANKS</div>
+        <div class="tab-pane" id="fairbanks" role="tabpanel">FAIRBANKS</div>
 
         <div class="tab-pane fade" id="list-bigbear" role="tabpanel" aria-labelledby="list-bigbear-list">BIG BEAR</div>
 
@@ -78,11 +78,6 @@
 </div>
 -->
 
-
-
-
-
-</div>
 
 
 {% endblock %}
