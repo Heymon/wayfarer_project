@@ -63,3 +63,34 @@ footer {
 #cities.in {
     width: 220px;
 }
+
+/* img carousel */
+
+.carousel-img {
+    height: 70vh;
+    width: 100vh
+}
+
+.fa-arrow-alt-circle-right, .fa-arrow-alt-circle-left {
+    color: #3B565E;
+    font-size: 3.5em;
+ }
+
+ #carousel {
+     background-color: #F0F2F2;
+ }
+
+ #home-footer-title {
+    display: flex;
+    justify-content: center;
+ }
+
+ .topic-content {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .topic-content h3 {
+     display: flex;
+     justify-content: center;
+ }
