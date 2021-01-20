@@ -71,7 +71,7 @@ def signup(request):
     # context = {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message}
     # return render(request, 'registration/signup.html', context)
 
-def profile_update(request):
+def update(request):
     print('isnotvalid')
     user = request.user
     if request.method =='POST':

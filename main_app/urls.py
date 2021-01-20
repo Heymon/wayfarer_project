@@ -5,8 +5,8 @@ urlpatterns = [
     #home route
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
-    path('profile/<int:user_id>', views.profile, name='profile'),
-    path('profile/<int:user_id>update', views.profile_update, name='profile_update'),
+    path('profile/', views.profile, name='profile'),
+    path('profile/update', views.update, name='update'),
     #path('cities/', views.cities_index, name='cities_index'),
     #path('cities/<int:city_id>/', views.cities_detail, name='cities_detail'),
     path('cities/<int:city_id>/post/post_create', views.post_create, name='post_create'),
