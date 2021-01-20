@@ -15,6 +15,13 @@ footer {
     text-align: right;
 }
 
+/* ================================NAVBAR====================== */
+
+.navbar{
+    background-color: #135952;
+}
+
+/* =======================SIGN UP FORM========================= */
 .signup-form {
     display: flex;
     flex-direction: column;
@@ -38,14 +45,9 @@ footer {
     display: none;
 }
 
-.tab-pane .content{
 
-    display: flex;
-}
 
-.navbar{
-    background-color: #135952;
-}
+/* =======================PROFILE PAGE==================================== */
 
 .row{
     display: flex;
@@ -60,29 +62,19 @@ footer {
     background-color: #E0EEEC;
 }
 
-.card.body{
+/* CITIES */
+.card{
+
+    background: #49A69C
+
+}
+
+.card-body{
+    background: #49A69C;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 3%;
-}
-
-.card-content{
-    display: flex;
-    flex-direction: row;
-    padding: 3%;
-    border: 1px solid black;
-    background-color: #ECF1F0;
-}
-
-.side-text{
-    display: flex;
-    flex-direction: column;
-    padding: 0% 3% 0% 3%;
-}
-
-.card-title{
-    font-size: 24px;
 }
 
 .city-content{
@@ -90,13 +82,45 @@ footer {
     flex-direction: row;
 }
 
-.inner-content{
+.city-content-text{
     padding:2%;
+}
+
+.card-subtitle {
+    margin-top: .25rem;
+    margin-bottom: 0.50rem;
+}
+
+.img-thumbnail{
+
+    width: 250px;
+    height: 250px;
+}
+
+/* POSTS */
+.post-content-title{
+    font-size: 24px;
+}
+
+.card-post-content{
+    display: flex;
+    flex-direction: row;
+    padding: 3%;
+    border: 1px solid black;
+    background-color: #ECF1F0;
+}
+
+.post-content-text{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 3% 0% 3%;
 }
 
 
 
-/* Profile toggles */
+
+
+/* ==================================PROFILE TOGGLES======================================== */
 #cities {
     -webkit-transition: width 2s ease;
     -moz-transition: width 2s ease;
@@ -117,7 +141,7 @@ footer {
     width: 220px;
 }
 
-/* img carousel */
+/* ======================IMG CAROUSEL======================== */
 
 .carousel-img {
     height: 70vh;
