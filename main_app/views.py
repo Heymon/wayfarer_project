@@ -24,12 +24,22 @@ def home (request):
     # )
     
 
-    # error_message= error_message
+    signup_error_message= ''
+    # login_error_message= ''
+
+    if 'signup_error' in request.session:
+        signup_error_message = request.session['signup_error']
+        del request.session['signup_error']
+    # elif 'login_error' in request.session:
+    #     login_error_message = request.session['signup_error']
+    #     del request.session['signup_error']
+
+    print(signup_error_message)
     authentication_form = AuthenticationForm()
     user_form = User_Profile_Form()
     profile_form = Profile_Form()
-    context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
-    # context = {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message}
+    # context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
+    context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form, 'signup_error': signup_error_message}
     return render(request, 'home.html', context)
 
 def profile(request):
@@ -62,6 +72,7 @@ def signup(request):
         else:
             error_message = user_form.errors
             print(error_message)
+            request.session['signup_error'] = error_message
             # return redirect('home', error_message)
             return redirect('home')
     
@@ -127,6 +138,7 @@ descrip = "Pellentesque habitant morbi tristique senectus et netus et malesuada 
     
 cities = [
 
+    City("zero", "Aspen", descrip ),
     City("one", "Fairbanks", descrip ),
     City("two", "Big Bear", descrip ),
     City("three", "Crested Butte", descrip ),
