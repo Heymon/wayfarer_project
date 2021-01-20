@@ -43,7 +43,7 @@ def home (request):
     return render(request, 'home.html', context)
 
 def profile(request):
-    posts = Post.objects.all()
+    posts = request.user.post_set.all()
     cities = City.objects.all()
     context = {'cities': cities, 'posts': posts}
     return render(request, 'trips/profile.html', context)
