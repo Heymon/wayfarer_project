@@ -9,7 +9,7 @@
   <div class="card-show-content">
               <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}"> 
               <div class="post-content-show-text">
-                <span class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a><br>
+                <span class="post-content-title">{{ post.title }}</span>
                   <div id="by">by {{post.user.username}}</div></span> 
                 <p>where: {{ post.location }}</p>
                 <p>Description: {{ post.text }}</p>
