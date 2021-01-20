@@ -1,7 +1,7 @@
 from django.core.files.base import ContentFile
 from django.http.request import QueryDict
 from main_app.models import Profile, Post
-from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form
+from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Post_Form
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -103,7 +103,7 @@ def update(request):
     context = {'profile_form': profile_form, 'user_update_form': user_update_form}
     return render(request, 'trips/update.html', context)
 
-def cities(request):
+def cities_detail(request):
     return render(request, 'trips/cities.html')
 
 def show_city(request, city_id):
