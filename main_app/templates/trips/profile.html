@@ -69,11 +69,12 @@
 
       <h2>POSTS</h2>
       {% for post in posts %}
-      <div class="card">
+      <div class="card1">
         <div class="card-post-content">
                     <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
                     <div class="post-content-text">
-                      <span class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
+                      <span class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a><br>
+                        <div id="by">by {{post.user.username}}</div></span>
                       <p>where: {{ post.location }}</p>
                       <p>Description: {{ post.text }}</p>
                     </div>
