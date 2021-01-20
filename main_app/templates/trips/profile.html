@@ -7,14 +7,14 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-4" >
-      <div class="card" style="width: 30rem; background: #49A69C">
+      <div class="card" style="background: #49A69C">
         <img src="{{ user.profile.profile_img }}" alt="profile pic">
-        <div class="card body" style="background: #49A69C;">
-          {{user.first_name}} {{user.last_name}}
-          <h6 class="card-subtitle mb-2">Username - {{user.username}}</h6>
-          <p class="text">Bio - {{user.bio}}</p>
-          <p class="profile-show">City - {{ user.profile.cur_city }}</p>
-          <p class="user-date-joined">Date joined - {{user.date_joined}}</p>
+        <div class="card-body">
+          <h6 >{{user.username}}</h6>
+          <p class="card-subtitle">{{user.first_name}} {{user.last_name}}</p>
+          <p class="card-subtitle">Bio - {{user.bio}}</p>
+          <p class="card-subtitle">City - {{ user.profile.cur_city }}</p>
+          <p class="card-subtitle">Date joined - {{user.date_joined}}</p>
           <a href=" {% url 'update' %}" class="btn btn-info">Edit Profile</a>
         </div>
       
@@ -29,13 +29,7 @@
             <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#{{city.id}}" role="tab">{{city.name}}</a>
             {% endfor %}
 
-            {% comment %} <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#fairbanks" role="tab">Fairbanks</a>
-
-            <a class="list-group-item list-group-item-action list-group-item-info" data-bs-toggle="list" href="#bigbear" role="tab">Big Bear</a>
-
-            <a class="list-group-item list-group-item-action list-group-item-info" data-bs-toggle="list" href="#crestedbutte" role="tab">Crested butte</a>
-
-            <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#newyork" role="tab" >New York</a> {% endcomment %}
+            {% comment %} <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#fairbanks" role="tab">Fairbanks</a>{% endcomment %}
           </div>
         </div>
       </div>
@@ -46,7 +40,7 @@
       <div class="tab-content">
         <div class="tab-pane active" id="aspen" role="tabpanel">
           <div class="city-content">
-            <div class="inner-content">
+            <div class="city-content-text">
             <h2>ASPEN</h2>
             <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. </p>
             </div>
@@ -56,41 +50,32 @@
 
         {% for city in cities %}
         <div class="tab-pane" id="{{city.id}}" role="tabpanel">
-          <h2>{{city.name}}</h2>
-          <div class="content">
-            <p>{{city.description}} </p>
-            <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" style=" width:250px; height:250px;" alt="aspen">
-          </div> 
+          <div class="city-content">
+            <div class="city-content-text">
+              <h2>{{city.name}}</h2>
+              <p>{{city.description}} </p>
+            </div> 
+              <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" style=" width:250px; height:250px;" alt="aspen">
+          </div>
         </div>
         {% endfor %}
 
         {% comment %} <div class="tab-pane" id="fairbanks" role="tabpanel">FAIRBANKS
           <img src="{% static 'resources/fairbanks.jpeg' %}" class="img-thumbnail" style=" width:250px; height:250px; margin-left:300px;" alt="fairbanks">
           <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-        </div>
-
-        <div class="tab-pane" id="bigbear" role="tabpanel">BIG BEAR
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-        </div>
-
-        <div class="tab-pane" id="crestedbutte" role="tabpanel">CRESTED BUTTE
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-        </div>
-
-        <div class="tab-pane" id="newyork" role="tabpanel">NEW YORK
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
         </div> {% endcomment %}
+      
       </div>
 
       <h2>POSTS</h2>
       {% for post in posts %}
       <div class="card">
-        <div class="card-content">
+        <div class="card-post-content">
                     <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-                    <div class="side-text">
-                    <span class="card-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
-                    <p>where: {{ post.location }}</p>
-                    <p>Description: {{ post.text }}</p>
+                    <div class="post-content-text">
+                      <span class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a></span>
+                      <p>where: {{ post.location }}</p>
+                      <p>Description: {{ post.text }}</p>
                     </div>
         </div>
       </div>
