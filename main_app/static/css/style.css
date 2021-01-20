@@ -63,6 +63,12 @@ footer {
 }
 
 /* CITIES */
+.card{
+
+    background: #49A69C
+
+}
+
 .card-body{
     background: #49A69C;
     display: flex;
@@ -83,6 +89,12 @@ footer {
 .card-subtitle {
     margin-top: .25rem;
     margin-bottom: 0.50rem;
+}
+
+.img-thumbnail{
+
+    width: 250px;
+    height: 250px;
 }
 
 /* POSTS */
