@@ -92,6 +92,14 @@ def update(request):
     context = {'profile_form': profile_form, 'user_update_form': user_update_form}
     return render(request, 'trips/update.html', context)
 
+def cities(request):
+    return render(request, 'trips/cities.html')
+
+def show_city(request, city_id):
+    city = City.objects.get(id=city_id)
+
+    context = {'city': city}
+    return render(request, 'trips/cities.html', context)  
 
 def show_post(request, post_id):
     # print(post_id)
