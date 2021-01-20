@@ -45,3 +45,9 @@ class User_Update_Form(ModelForm):
     class Meta:
         model = User
         fields = ("first_name", "last_name")
+
+
+class Post_Form(ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'text']

@@ -71,7 +71,7 @@ def signup(request):
     # context = {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message}
     # return render(request, 'registration/signup.html', context)
 
-def update(request):
+def profile_update(request):
     print('isnotvalid')
     user = request.user
     if request.method =='POST':
@@ -99,6 +99,30 @@ def show_post(request, post_id):
 
     context = {'post': post}
     return render(request, 'trips/show.html', context)
+
+def post_create(request, city_id):
+    form = Post_Form(request.POST)
+    if form.is_valid():
+        new_post = form.save(commit=False)
+        new_post.city_id = city_id
+        new_post.save()
+    return redirect('cities_detail', city_id = city_id)
+
+def posts_edit(request, post_id):
+    post = Post.objects.get(id=post_id)
+    if request.method =='POST':
+        post_form = Post_Form(request.POST, instance=post)
+        if post_form.is_valid():
+            post_form.save()
+            return redirect('posts_detail', post_id=post.id)
+
+    post_form = Post_Form(instance=post)
+    context = {'post_form': post_form, 'post': post}
+    return render(request, 'posts/edit.html', context)
+
+def posts_delete(request, post_id):
+    Post.objects.get(id=post_id).delete()
+    return redirect('cities_index')
 
 
 

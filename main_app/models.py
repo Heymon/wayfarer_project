@@ -15,9 +15,16 @@ class Profile(models.Model):
     def __str__(self):
         return f"{self.user.username} is currently living in {self.cur_city}"
 
+class City(model.Models):
+    name = models.CharField(maxlength=100)
+    image = models.URLField(maxlength=200)
+
+    def __str__(self):
+        return self.name
+        
 class Post(models.Model):
     # img = models.URLField(max_length=100)
-    location = models.CharField(max_length=100)
+    location = ForeignKey(City, on_delete=CASCADE)
     title = models.CharField(max_length=50)
     text = models.TextField(max_length=1000)
     user = ForeignKey(User, on_delete=CASCADE)
