@@ -1,17 +1,24 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<h1>POST</h1>
+<h1 id="heading">POST</h1>
 
-
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">{{ post.title }} by {{post.user.username}}</span>
-      <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-      <p>where: {{ post.location }}</p>
-      <p>Description: {{ post.text }}</p>
-    </div>
+<div class="container">
+<div class="card-show">
+  <div class="card-show-content">
+              <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}"> 
+              <div class="post-content-show-text">
+                <span class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a><br>
+                  <div id="by">by {{post.user.username}}</div></span> 
+                <p>where: {{ post.location }}</p>
+                <p>Description: {{ post.text }}</p>
+                
+                
+              </div>
   </div>
+</div>
+</div>
 
 
 {% endblock %}

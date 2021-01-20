@@ -64,9 +64,7 @@ footer {
 
 /* CITIES */
 .card{
-
     background: #49A69C
-
 }
 
 .card-body{
@@ -98,6 +96,11 @@ footer {
 }
 
 /* POSTS */
+
+.card-post{
+    background: #E0EEEC;
+}
+
 .post-content-title{
     font-size: 24px;
 }
@@ -106,14 +109,18 @@ footer {
     display: flex;
     flex-direction: row;
     padding: 3%;
-    border: 1px solid black;
     background-color: #ECF1F0;
+    margin-bottom: 2%;
 }
 
 .post-content-text{
     display: flex;
     flex-direction: column;
     padding: 0% 3% 0% 3%;
+}
+
+#by{
+    font-size: 13px;
 }
 
 
@@ -171,3 +178,47 @@ footer {
      display: flex;
      justify-content: center;
  }
+
+ 
+
+ /* ======================Post Show Page======================== */
+
+#heading{
+    color:#135952;
+    text-shadow: 3px black;
+    margin-left: 10%;
+    margin-top:5%;
+}
+
+ .card-show{
+    border: 2px solid grey;
+    background-color: #ECF1F0;
+    box-shadow: #3B565E 2px;
+    margin-bottom: 2%;
+}
+
+#post-img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
+#post-img:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+}
+
+
+.card-show-content{
+    display: flex;
+    flex-direction: row;
+    padding: 3%;
+    border: 1px solid black;
+    background-color: #ECF1F0;
+}
+
+.post-content-show-text{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 3% 0% 3%;
+}

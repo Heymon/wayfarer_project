@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Cities</h1> 
+        <div role="tabpanel">
+          <div class="list-group" id="list" role="tablist">
+            <a class="list-group-item list-group-item-action active list-group-item-info" data-bs-toggle="list" href="#aspen" role="tab">Aspen</a>
+            
+            {% for city in cities %}
+            <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#{{city.id}}" role="tab">{{city.name}}</a>
+            {% endfor %}
+
+            {% comment %} <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#fairbanks" role="tab">Fairbanks</a>{% endcomment %}
+          </div>
+        </div>
