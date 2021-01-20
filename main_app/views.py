@@ -117,7 +117,7 @@ def show_post(request, post_id):
     post = Post.objects.get(id=post_id)
 
     context = {'post': post}
-    return render(request, 'trips/show.html', context)
+    return render(request, 'posts/show.html', context)
 
 def post_create(request, city_id):
     form = Post_Form(request.POST)
