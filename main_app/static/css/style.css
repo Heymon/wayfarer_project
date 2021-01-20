@@ -97,7 +97,7 @@ footer {
 
 /* POSTS */
 
-.card1{
+.card-post{
     background: #E0EEEC;
 }
 
@@ -190,7 +190,7 @@ footer {
     margin-top:5%;
 }
 
- .card1{
+ .card-show{
     border: 2px solid grey;
     background-color: #ECF1F0;
     box-shadow: #3B565E 2px;
@@ -209,7 +209,7 @@ footer {
 }
 
 
-.card-post1-content{
+.card-show-content{
     display: flex;
     flex-direction: row;
     padding: 3%;
@@ -217,7 +217,7 @@ footer {
     background-color: #ECF1F0;
 }
 
-.post-content1-text{
+.post-content-show-text{
     display: flex;
     flex-direction: column;
     padding: 0% 3% 0% 3%;
