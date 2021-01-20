@@ -16,8 +16,8 @@ class Profile(models.Model):
         return f"{self.user.username} is currently living in {self.cur_city}"
 
 class City(models.Model):
-    name = models.CharField(maxlength=100)
-    image = models.URLField(maxlength=200)
+    name = models.CharField(max_length=100)
+    image = models.URLField(max_length=200)
 
     def __str__(self):
         return self.name
