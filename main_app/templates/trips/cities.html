@@ -12,3 +12,22 @@
 
           </div>
         </div>
+
+<!--Cities description-->
+<div class="col-8">
+    <div class="tab-content">
+
+      {% for city in cities %}
+        {% if forloop.counter0 == 0 %}
+
+          <div class="tab-pane active" id="{{city.id}}" role="tabpanel">
+            <div class="city-content">
+              <div class="city-content-text">
+                <h2>{{city.name}}</h2>
+                <p>{{city.description}} </p>
+              </div> 
+                <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
+            </div>
+          </div>
+
+        {% else %}

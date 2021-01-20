@@ -52,6 +52,17 @@ footer {
 
 /* =======================PROFILE PAGE==================================== */
 
+
+#idcard-context{
+    font-size: 20px;
+}
+.card-subtitle{
+    font-size: 25px;
+    font-weight:bold;
+    margin-left: 2%;
+    margin-bottom: 0px;
+}
+
 .row{
     display: flex;
     padding: 3%;
@@ -60,12 +71,12 @@ footer {
 }
 
 .col-8{
-    border: 1px solid black;
+    border: 1px solid grey;
     padding: 1%;
     background-color: #E0EEEC;
 }
 
-/* CITIES */
+/* =======================CITIES PAGE==================================== */
 .card{
     background: #49A69C
 }

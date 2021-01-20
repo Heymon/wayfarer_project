@@ -3,33 +3,25 @@
 {% block content %}
 
 
-<!--Cities-->
+<!--id card-->
 <div class="container-fluid">
   <div class="row">
     <div class="col-4" >
       <div class="card">
         <img src="{{ user.profile.profile_img }}" alt="profile pic">
-        <div class="card-body">
-          <h6 >{{user.username}}</h6>
           <p class="card-subtitle">{{user.first_name}} {{user.last_name}}</p>
-          <p class="card-subtitle">Bio - {{user.bio}}</p>
-          <p class="card-subtitle">City - {{ user.profile.cur_city }}</p>
-          <p class="card-subtitle">Date joined - {{user.date_joined}}</p>
+          <div class="card-body">
+            <p id="idcard-context">
+            {{user.username}}<br>
+            Bio: {{user.bio}}<br>
+            Location: {{ user.profile.cur_city }}<br>
+            Date joined: {{user.date_joined}}<br>
           <a href=" {% url 'update' %}" class="btn btn-info">Edit Profile</a>
         </div>
       
     
         
-        <h1>Cities</h1> 
-        <div role="tabpanel">
-          <div class="list-group" id="list" role="tablist">
-            
-            {% for city in cities %}
-            <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#{{city.id}}" role="tab">{{city.name}}</a>
-            {% endfor %}
-
-          </div>
-        </div>
+        
       </div>
     </div>
 
@@ -37,34 +29,6 @@
     <div class="col-8">
       <div class="tab-content">
 
-        {% for city in cities %}
-          {% if forloop.counter0 == 0 %}
-
-            <div class="tab-pane active" id="{{city.id}}" role="tabpanel">
-              <div class="city-content">
-                <div class="city-content-text">
-                  <h2>{{city.name}}</h2>
-                  <p>{{city.description}} </p>
-                </div> 
-                  <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
-              </div>
-            </div>
-
-          {% else %}
-
-            <div class="tab-pane " id="{{city.id}}" role="tabpanel">
-              <div class="city-content">
-                <div class="city-content-text">
-                  <h2>{{city.name}}</h2>
-                  <p>{{city.description}} </p>
-                </div> 
-                  <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-
-      </div>
 
       <h2>POSTS</h2>
       {% for post in posts %}
