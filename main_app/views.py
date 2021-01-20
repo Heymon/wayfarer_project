@@ -1,7 +1,7 @@
 from django.core.files.base import ContentFile
 from django.http.request import QueryDict
 from main_app.models import Profile, Post
-from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form
+from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Post_Form
 from django.shortcuts import render, redirect
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -24,12 +24,22 @@ def home (request):
     # )
     
 
-    # error_message= error_message
+    signup_error_message= ''
+    # login_error_message= ''
+
+    if 'signup_error' in request.session:
+        signup_error_message = request.session['signup_error']
+        del request.session['signup_error']
+    # elif 'login_error' in request.session:
+    #     login_error_message = request.session['signup_error']
+    #     del request.session['signup_error']
+
+    print(signup_error_message)
     authentication_form = AuthenticationForm()
     user_form = User_Profile_Form()
     profile_form = Profile_Form()
-    context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
-    # context = {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message}
+    # context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
+    context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form, 'signup_error': signup_error_message}
     return render(request, 'home.html', context)
 
 def profile(request):
@@ -62,6 +72,7 @@ def signup(request):
         else:
             error_message = user_form.errors
             print(error_message)
+            request.session['signup_error'] = error_message
             # return redirect('home', error_message)
             return redirect('home')
     
@@ -92,7 +103,7 @@ def update(request):
     context = {'profile_form': profile_form, 'user_update_form': user_update_form}
     return render(request, 'trips/update.html', context)
 
-def cities(request):
+def cities_detail(request):
     return render(request, 'trips/cities.html')
 
 def show_city(request, city_id):
@@ -106,7 +117,7 @@ def show_post(request, post_id):
     post = Post.objects.get(id=post_id)
 
     context = {'post': post}
-    return render(request, 'trips/show.html', context)
+    return render(request, 'posts/show.html', context)
 
 def post_create(request, city_id):
     form = Post_Form(request.POST)
@@ -159,6 +170,7 @@ descrip = "Pellentesque habitant morbi tristique senectus et netus et malesuada 
     
 cities = [
 
+    City("zero", "Aspen", descrip ),
     City("one", "Fairbanks", descrip ),
     City("two", "Big Bear", descrip ),
     City("three", "Crested Butte", descrip ),

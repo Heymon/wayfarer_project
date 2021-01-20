@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'wayfare_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wayfare',
+        'NAME': 'wayfarer',
     }
 }
 

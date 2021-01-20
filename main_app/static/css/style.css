@@ -45,6 +45,9 @@ footer {
     display: none;
 }
 
+.error {
+    color: crimson;
+}
 
 
 /* =======================PROFILE PAGE==================================== */

@@ -20,40 +20,50 @@
       
     
         
-        
+        <h1>Cities</h1> 
+        <div role="tabpanel">
+          <div class="list-group" id="list" role="tablist">
+            
+            {% for city in cities %}
+            <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#{{city.id}}" role="tab">{{city.name}}</a>
+            {% endfor %}
+
+          </div>
+        </div>
       </div>
     </div>
 
     <!--Cities description-->
     <div class="col-8">
       <div class="tab-content">
-        <div class="tab-pane active" id="aspen" role="tabpanel">
-          <div class="city-content">
-            <div class="city-content-text">
-            <h2>ASPEN</h2>
-            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. </p>
-            </div>
-            <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
-          </div> 
-        </div>
 
         {% for city in cities %}
-        <div class="tab-pane" id="{{city.id}}" role="tabpanel">
-          <div class="city-content">
-            <div class="city-content-text">
-              <h2>{{city.name}}</h2>
-              <p>{{city.description}} </p>
-            </div> 
-              <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
-          </div>
-        </div>
+          {% if forloop.counter0 == 0 %}
+
+            <div class="tab-pane active" id="{{city.id}}" role="tabpanel">
+              <div class="city-content">
+                <div class="city-content-text">
+                  <h2>{{city.name}}</h2>
+                  <p>{{city.description}} </p>
+                </div> 
+                  <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
+              </div>
+            </div>
+
+          {% else %}
+
+            <div class="tab-pane " id="{{city.id}}" role="tabpanel">
+              <div class="city-content">
+                <div class="city-content-text">
+                  <h2>{{city.name}}</h2>
+                  <p>{{city.description}} </p>
+                </div> 
+                  <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
+              </div>
+            </div>
+          {% endif %}
         {% endfor %}
 
-        {% comment %} <div class="tab-pane" id="fairbanks" role="tabpanel">FAIRBANKS
-          <img src="{% static 'resources/fairbanks.jpeg' %}" class="img-thumbnail" style=" width:250px; height:250px; margin-left:300px;" alt="fairbanks">
-          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
-        </div> {% endcomment %}
-      
       </div>
 
       <h2>POSTS</h2>
