@@ -5,7 +5,7 @@ from django.forms import ModelForm, fields
 
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Profile
+from .models import Profile, Post
 from django import forms
 
 class User_Profile_Form(UserCreationForm):
@@ -45,3 +45,9 @@ class User_Update_Form(ModelForm):
     class Meta:
         model = User
         fields = ("first_name", "last_name")
+
+
+class Post_Form(ModelForm):
+    class Meta:
+        model = Post
+        fields = ['title', 'text']
