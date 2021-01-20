@@ -29,37 +29,6 @@
     <div class="col-8">
       <div class="tab-content">
 
-<<<<<<< HEAD
-        {% for city in cities %}
-          {% if forloop.counter0 == 0 %}
-
-            <div class="tab-pane active" id="{{city.id}}" role="tabpanel">
-              <div class="city-content">
-                <div class="city-content-text">
-                  <h2>{{city.name}}</h2>
-                  {% comment %} <p>{{city.description}} </p> {% endcomment %}
-                </div> 
-                  <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
-              </div>
-            </div>
-
-          {% else %}
-
-            <div class="tab-pane " id="{{city.id}}" role="tabpanel">
-              <div class="city-content">
-                <div class="city-content-text">
-                  <h2>{{city.name}}</h2>
-                  {% comment %} <p>{{city.description}} </p> {% endcomment %}
-                </div> 
-                  <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-
-      </div>
-=======
->>>>>>> submaster
 
       <h2>POSTS</h2>
       {% for post in posts %}
