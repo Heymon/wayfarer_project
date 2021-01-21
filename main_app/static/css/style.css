@@ -171,7 +171,7 @@ footer {
     height: 250px;
 }
 
-/* POSTS */
+/* ========================POSTS================================ */
 
 #cPosts{
     font-size: 25px;
@@ -184,8 +184,23 @@ footer {
     
 }
 
+.post-content-text{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 0% 0% 3%;
+}
+
 .post-content-title{
     font-size: 24px;
+    display: flex;
+    flex-flow: column;
+    margin: 16px 0;
+}
+
+.post-content-text>p:last-child{
+    color:#49464E;
+    font-size: 14px;
+    margin: 58px 0px 0 253px;
 }
 
 .card-post-content{
@@ -196,11 +211,7 @@ footer {
     margin-bottom: 2%;
 }
 
-.post-content-text{
-    display: flex;
-    flex-direction: column;
-    padding: 0% 3% 0% 3%;
-}
+
 
 
 

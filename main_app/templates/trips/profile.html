@@ -39,10 +39,13 @@
         <div class="card-post-content">
                     <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
                     <div class="post-content-text">
-                      <span class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a><br>
-                        <div id="by">by {{post.user.username}}</div></span><br>
+                      <div class="post-content-title">
+                        <a href="{% url 'show_post' post.id %}">{{ post.title }}</a>
+                        <span id="by">by {{post.user.username}}</span>
+                      </div>
                       <p>where: {{ post.location }}</p>
                       <p>Description: {{ post.text }}</p>
+                      <p>{{ post.created_at}}</p>
                     </div>
         </div>
       </div>
