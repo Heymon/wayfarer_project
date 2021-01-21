@@ -38,7 +38,6 @@ def home (request):
 def profile(request):
     post_form = Post_Form
     posts = request.user.post_set.all().order_by('-created_at')
-    # posts = request.user.post_set.order_by('created_at').desc()
     cities = City.objects.all()
     context = {'cities': cities, 'posts': posts, 'post_form': post_form}
     return render(request, 'trips/profile.html', context)
