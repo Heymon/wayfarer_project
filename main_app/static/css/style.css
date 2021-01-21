@@ -96,6 +96,7 @@ footer {
 
 #idcard-context{
     font-size: 20px;
+    margin: 0;
 }
 .card-subtitle{
     font-size: 25px;
@@ -127,6 +128,10 @@ footer {
 .main-tab-title>*{
     
     margin: 0px 33px 0 21px;
+}
+
+#edit-btn{
+    margin: 12px 0 0 0;
 }
 
 /* =======================CITIES PAGE==================================== */
