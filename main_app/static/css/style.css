@@ -19,6 +19,7 @@ footer {
 
 .navbar{
     background-color: #135952;
+    
 }
 
 /* =======================SIGN UP FORM========================= */
@@ -49,7 +50,47 @@ footer {
     color: crimson;
 }
 
+#signup {
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#signup:hover{
+    border-color: rgba(255,255,255,1);
+    }
 
+/*login button*/
+#login {
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346; 
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#login:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+
+
+
+    
 /* =======================PROFILE PAGE==================================== */
 
 
@@ -100,11 +141,14 @@ footer {
     align-items: flex-start;
     padding: 3%;
 }
-
+#citiesh1{
+    margin-left: 3%;
+}
 .city-content{
     display: flex;
     /* flex-direction: row; */
     justify-content: space-between;
+    text-transform: uppercase;
 }
 
 .city-content-text{
@@ -124,8 +168,15 @@ footer {
 
 /* POSTS */
 
+#cPosts{
+    font-size: 25px;
+    margin-left:2%;
+    text-transform: capitalize;
+}
+
 .card-post{
     background: #E0EEEC;
+    
 }
 
 .post-content-title{
@@ -145,6 +196,8 @@ footer {
     flex-direction: column;
     padding: 0% 3% 0% 3%;
 }
+
+
 
 #by{
     font-size: 13px;
@@ -175,8 +228,15 @@ footer {
     width: 220px;
 }
 
-/* ======================IMG CAROUSEL======================== */
+/* ======================HOME PAGE======================== */
 
+#wayfarer{
+    font-size: 40px;
+    font-style: italic;
+    color: #135952;
+}
+
+/* IMG CAROUSEL */
 .carousel-img {
     height: 70vh;
     width: 100vh
@@ -185,28 +245,32 @@ footer {
 .fa-arrow-alt-circle-right, .fa-arrow-alt-circle-left {
     color: #3B565E;
     font-size: 3.5em;
- }
+}
 
- #carousel {
-     background-color: #F0F2F2;
- }
+#carousel {
+    background-color: #F0F2F2;
+}
 
- #home-footer-title {
+#home-footer-title {
     display: flex;
     justify-content: center;
- }
+}
 
- .topic-content {
-     display: flex;
-     flex-direction: column;
- }
+.topic-content {
+    display: flex;
+    flex-direction: column;
+}
 
- .topic-content h3 {
-     display: flex;
-     justify-content: center;
- }
+.topic-content h3 {
+    display: flex;
+    justify-content: center;
+}
 
- 
+#bttmRow{
+    background:#F2AA6B;
+}
+
+
 
  /* ======================Post Show Page======================== */
 
@@ -217,7 +281,7 @@ footer {
     margin-top:5%;
 }
 
- .card-show{
+.card-show{
     border: 2px solid grey;
     background-color: #ECF1F0;
     box-shadow: #3B565E 2px;
@@ -228,12 +292,9 @@ footer {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 5px;
-    width: 150px;
+    width: 250px;
 }
 
-#post-img:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
-}
 
 
 .card-show-content{
@@ -249,3 +310,66 @@ footer {
     flex-direction: column;
     padding: 0% 3% 0% 3%;
 }
+
+#edit {
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#edit:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+#delete {
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#delete:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+/* =======================Edit Modal======================== */
+
+.modal-content{
+    background:#ECF1F0;
+}
+
+#save{
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#save:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+
+

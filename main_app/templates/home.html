@@ -28,7 +28,7 @@
         <div class="carousel-inner">
 
           <div class="carousel-item active" data-bs-interval="2000">
-            <img src="{% static 'resources/quebec-unsplash copy.jpeg' %}" class="d-block mx-auto carousel-img" alt="Golden Gate Bridge">
+            <img src="https://i.ibb.co/9wp9mnW/quebec-unsplash-copy.jpg" alt="quebec-unsplash-copy" class="d-block mx-auto carousel-img">
           </div>
 
           <div class="carousel-item" data-bs-interval="2000">
@@ -36,7 +36,7 @@
           </div>
 
           <div class="carousel-item" data-bs-interval="2000">
-            <img src="{% static 'resources/newyork-unsplash copy.jpeg' %}" class="d-block mx-auto carousel-img" alt="Big Ben Clock Tower">
+            <img src="https://i.ibb.co/h2rFZcs/newyork-unsplash-copy.jpg" alt="newyork-unsplash-copy" class="d-block mx-auto carousel-img">
           </div>
         </div>
 
@@ -52,10 +52,13 @@
 </div>
 
 <div class="container" id="home-footer-title">
-  <h2>Wayfarer is...</h2>
+  <h2 id="wayfarer">Wayfarer is...</h2>
+  <br>
+  <br>
+
 </div>
-<div class="container">
-  <div class="row">
+<div class="container"></div>
+  <div class="row" id="bttmRow">
     <div class="col-4">
       <div class="topic-content">
         <h3>Montreal, Canada</h3>
@@ -96,7 +99,7 @@
             {% if signup_error %}
                 <p class="signup error">{{signup_error}}</p>
             {% endif %}
-          <input type="submit" value="Sign Up">
+          <input id="signup" type="submit" value="Sign Up">
           <input type="hidden" name="next" value="{{next}}">
       
         </form>
@@ -120,7 +123,7 @@
             {% comment %} {% if login_error %}
                 <p class="login error">{{login_error}}</p>
             {% endif %} {% endcomment %}
-          <input type="submit" value="Log in">
+          <input id="login" type="submit" value="Log in">
           <input type="hidden" name="next" value="{{next}}">
       
         </form>
