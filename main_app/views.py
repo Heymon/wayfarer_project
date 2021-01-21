@@ -115,8 +115,9 @@ def show_city(request, city_id):
 def show_post(request, post_id):
     # print(post_id)
     post = Post.objects.get(id=post_id)
+    post_form = Post_Form(instance=post)
 
-    context = {'post': post}
+    context = {'post': post, 'post_form': post_form}
     return render(request, 'posts/show.html', context)
 
 def post_create(request, city_id):
@@ -133,7 +134,7 @@ def posts_edit(request, post_id):
         post_form = Post_Form(request.POST, instance=post)
         if post_form.is_valid():
             post_form.save()
-            return redirect('posts_detail', post_id=post.id)
+            return redirect('show_post', post_id=post.id)
 
     post_form = Post_Form(instance=post)
     context = {'post_form': post_form, 'post': post}
@@ -141,7 +142,7 @@ def posts_edit(request, post_id):
 
 def posts_delete(request, post_id):
     Post.objects.get(id=post_id).delete()
-    return redirect('cities_index')
+    return redirect('profile')
 
 
 
