@@ -15,13 +15,6 @@ from django.core.mail import EmailMessage, send_mail
 #=================================ROUTES====================================#
 
 def home (request):
-    # send_mail(
-    #     'subject this',
-    #     'hello future',
-    #     'email@example.com',
-    #     ['rcavalleir@gmail.com'],
-    #     fail_silently=False
-    # )
     
 
     signup_error_message= ''
@@ -43,9 +36,10 @@ def home (request):
     return render(request, 'home.html', context)
 
 def profile(request):
-    posts = Post.objects.all()
+    post_form = Post_Form
+    posts = request.user.post_set.all()
     cities = City.objects.all()
-    context = {'cities': cities, 'posts': posts}
+    context = {'cities': cities, 'posts': posts, 'post_form': post_form}
     return render(request, 'trips/profile.html', context)
 
 
@@ -105,18 +99,16 @@ def update(request):
     return render(request, 'trips/update.html', context)
 
 def cities_detail(request, city_id):
+    post_form = Post_Form
     cities = City.objects.all()
+    city_page = City.objects.get(id=city_id)
+    # print(cities.get(id='1').name)
     posts = City.objects.get(id=city_id).post_set.all()
-    print(request)
+    # print(request)
 
-    context = {'cities': cities, 'posts': posts, 'city_id': city_id}
+    # context = {'cities': cities, 'posts': posts, 'city_id': city_id, 'post_form': post_form}
+    context = {'cities': cities, 'posts': posts, 'city_page': city_page, 'post_form': post_form}
     return render(request, 'trips/cities.html', context)  
-
-# def show_city(request, city_id):
-#     city = City.objects.get(id=city_id)
-
-#     context = {'city': city}
-#     return render(request, 'trips/cities.html', context)  
 
 def show_post(request, post_id):
     # print(post_id)
@@ -126,13 +118,28 @@ def show_post(request, post_id):
     context = {'post': post, 'post_form': post_form}
     return render(request, 'posts/show.html', context)
 
-def post_create(request, city_id):
-    form = Post_Form(request.POST)
+def post_create(request):
+    form = None
+    direction = ''
+    if 'redirect' in request.POST:
+        mutable_POST = request.POST.copy()
+        print(mutable_POST)
+        # print(QueryDict(f'route={mutable_POST.pop("redirect")[0]}'))
+        direction = mutable_POST.pop("redirect")[0]
+        print(direction)
+        form = Post_Form(mutable_POST)
+    else:
+        form = Post_Form(request.POST)
+
     if form.is_valid():
         new_post = form.save(commit=False)
-        new_post.city_id = city_id
+        new_post.user = request.user
+        # new_post.city_id = city_id
         new_post.save()
-    return redirect('cities_detail', city_id = city_id)
+
+    if direction:
+        return redirect('cities_detail', direction)
+    return redirect('profile')
 
 def posts_edit(request, post_id):
     post = Post.objects.get(id=post_id)

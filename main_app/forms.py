@@ -50,4 +50,5 @@ class User_Update_Form(ModelForm):
 class Post_Form(ModelForm):
     class Meta:
         model = Post
-        fields = ['title', 'text']
+        # labels = {'title': 'Title', 'location': 'Location'}
+        fields = ['title', 'text', 'location']

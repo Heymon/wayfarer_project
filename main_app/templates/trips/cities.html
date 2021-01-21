@@ -26,7 +26,7 @@
       <div class="tab-content">
         {% comment %} <p>{{request}}</p> {% endcomment %}
         {% for city in cities %}
-          {% if city.id == city_id %}
+          {% if city.id == city_page.id %}
 
             <div class="tab-pane active" id="{{city.id}}" role="tabpanel">
               <div class="city-content">
@@ -38,23 +38,25 @@
               </div>
             </div>
 
-          {% else %}
+          {% comment %} {% else %}
 
             <div class="tab-pane " id="{{city.id}}" role="tabpanel">
               <div class="city-content">
                 <div class="city-content-text">
                   <h2>{{city.name}}</h2>
-                  {% comment %} <p>{{city.description}} </p> {% endcomment %}
                 </div> 
                   <img src="{{city.image}}" class="img-thumbnail" alt="{{city.name}}">
               </div>
-            </div>
-          {% endif %}
+            </div> {% endcomment %}
+          {% endif %} 
         {% endfor %}
 
       </div>
 
-      <h2 id="cPosts">Posts</h2>
+      <div class="main-tab-title">
+        <h2 id="cPosts">POSTS</h2>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postModal" role="button"><i class="fas fa-plus-circle fa-2x"></i></button>
+      </div>
       {% for post in posts %}
       <div class="card-post">
         <div class="card-post-content">
@@ -76,4 +78,33 @@
     </div>
   </div>
 </div>
+
+
+{% comment %} {% create post modal %} {% endcomment %}
+<div class="modal fade" id="postModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add a Post About {{city_page.name}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'post_create'%}" method="post">
+          {% csrf_token %}
+          {% comment %} {{post_form.as_p}} {% endcomment %}
+          <p>{{post_form.title.label_tag}} {{post_form.title}}</p>
+          <p>{{post_form.text.label_tag}} {{post_form.text}}</p>
+          <input type="hidden" name="location" id="id_location" value="{{city_page.id}}">
+          <input type="hidden" name="redirect" id="redirect" value="{{city_page.id}}">
+          <input type="submit" value="POST!">
+        
+        </form>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 {% endblock %}
