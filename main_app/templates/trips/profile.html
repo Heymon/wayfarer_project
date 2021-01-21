@@ -29,8 +29,11 @@
     <div class="col-8">
       <div class="tab-content">
 
-
-      <h2>POSTS BY YOU</h2>
+      <div class="main-tab-title">
+        <h2>POSTS BY YOU</h2>
+        {% comment %} <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" role="button"> {% endcomment %}
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postModal" role="button"><i class="fas fa-plus-circle fa-2x"></i></button>
+      </div>
       {% for post in posts %}
       <div class="card-post">
         <div class="card-post-content">
@@ -47,6 +50,29 @@
     </div>
   </div>
 </div>
+
+
+{% comment %} {% create post modal %} {% endcomment %}
+<div class="modal fade" id="postModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add a Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'post_create' %}" method="post">
+          {% csrf_token %}
+          {{post_form.as_p}}
+          <input type="submit" value="POST!">
+        
+        </form>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
 
   
 

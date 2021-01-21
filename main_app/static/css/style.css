@@ -76,6 +76,18 @@ footer {
     background-color: #E0EEEC;
 }
 
+.main-tab-title{
+
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+.main-tab-title>*{
+    
+    margin: 0px 33px 0 21px;
+}
+
 /* =======================CITIES PAGE==================================== */
 .card{
     background: #49A69C
