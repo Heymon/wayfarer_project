@@ -2,32 +2,78 @@
 {% load static %}
 {% block content %}
 
-<h1>Cities</h1> 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4" >
+      <div class="card">
+        
+        <h1>Cities</h1> 
         <div role="tabpanel">
           <div class="list-group" id="list" role="tablist">
             
             {% for city in cities %}
-            <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="#{{city.id}}" role="tab">{{city.name}}</a>
+            {% comment %} <a class="list-group-item list-group-item-action list-group-item-info"  data-bs-toggle="list" href="{% url 'cities_detail' city.id %}" role="tab">{{city.name}}</a> {% endcomment %}
+            <a class="list-group-item list-group-item-action list-group-item-info"  href="{% url 'cities_detail' city.id %}" role="tab">{{city.name}}</a>
             {% endfor %}
 
           </div>
         </div>
+      </div>
+    </div>
 
-<!--Cities description-->
-<div class="col-8">
-    <div class="tab-content">
 
-      {% for city in cities %}
-        {% if forloop.counter0 == 0 %}
+    <div class="col-8">
+      <div class="tab-content">
+        {% comment %} <p>{{request}}</p> {% endcomment %}
+        {% for city in cities %}
+          {% if city.id == city_id %}
 
-          <div class="tab-pane active" id="{{city.id}}" role="tabpanel">
-            <div class="city-content">
-              <div class="city-content-text">
-                <h2>{{city.name}}</h2>
-                <p>{{city.description}} </p>
-              </div> 
-                <img src="{% static 'resources/aspen.jpg' %}" class="img-thumbnail" alt="aspen">
+            <div class="tab-pane active" id="{{city.id}}" role="tabpanel">
+              <div class="city-content">
+                <div class="city-content-text">
+                  <h2>{{city.name}}</h2>
+                  {% comment %} <p>{{city.description}} </p> {% endcomment %}
+                </div> 
+                  <img src="{{city.image}}" class="img-thumbnail" alt="{{city.name}}">
+              </div>
             </div>
-          </div>
 
-        {% else %}
+          {% else %}
+
+            <div class="tab-pane " id="{{city.id}}" role="tabpanel">
+              <div class="city-content">
+                <div class="city-content-text">
+                  <h2>{{city.name}}</h2>
+                  {% comment %} <p>{{city.description}} </p> {% endcomment %}
+                </div> 
+                  <img src="{{city.image}}" class="img-thumbnail" alt="{{city.name}}">
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+
+      </div>
+
+      <h2>POSTS</h2>
+      {% for post in posts %}
+      <div class="card-post">
+        <div class="card-post-content">
+                    <img src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
+                    <div class="post-content-text">
+                      <span class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a><br>
+                        <div id="by">by {{post.user.username}}</div></span>
+                      <p>where: {{ post.location }}</p>
+                      <p>Description: {{ post.text }}</p>
+                    </div>
+        </div>
+      </div>
+
+      {% empty %}
+
+      <h3>No posts yet :(</h3>
+
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

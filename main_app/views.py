@@ -1,6 +1,6 @@
 from django.core.files.base import ContentFile
 from django.http.request import QueryDict
-from main_app.models import Profile, Post
+from main_app.models import Profile, Post, City
 from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Post_Form
 from django.shortcuts import render, redirect
 
@@ -44,6 +44,7 @@ def home (request):
 
 def profile(request):
     posts = Post.objects.all()
+    cities = City.objects.all()
     context = {'cities': cities, 'posts': posts}
     return render(request, 'trips/profile.html', context)
 
@@ -103,14 +104,19 @@ def update(request):
     context = {'profile_form': profile_form, 'user_update_form': user_update_form}
     return render(request, 'trips/update.html', context)
 
-def cities_detail(request):
-    return render(request, 'trips/cities.html')
+def cities_detail(request, city_id):
+    cities = City.objects.all()
+    posts = City.objects.get(id=city_id).post_set.all()
+    print(request)
 
-def show_city(request, city_id):
-    city = City.objects.get(id=city_id)
-
-    context = {'city': city}
+    context = {'cities': cities, 'posts': posts, 'city_id': city_id}
     return render(request, 'trips/cities.html', context)  
+
+# def show_city(request, city_id):
+#     city = City.objects.get(id=city_id)
+
+#     context = {'city': city}
+#     return render(request, 'trips/cities.html', context)  
 
 def show_post(request, post_id):
     # print(post_id)
@@ -159,22 +165,22 @@ def send_email(user):
 
 
 #fake db for cities seed data
-class City:
+# class City:
 
-    def __init__(self, id, name, description, img="#"):
-        self.id = id
-        self.name = name
-        self.description = description
-        self.img = img
+#     def __init__(self, id, name, description, img="#"):
+#         self.id = id
+#         self.name = name
+#         self.description = description
+#         self.img = img
         
-descrip = "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi."
+# descrip = "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi."
     
-cities = [
+# cities = [
 
-    City("zero", "Aspen", descrip ),
-    City("one", "Fairbanks", descrip ),
-    City("two", "Big Bear", descrip ),
-    City("three", "Crested Butte", descrip ),
-    City("four", "New York", descrip ),
+#     City("zero", "Aspen", descrip ),
+#     City("one", "Fairbanks", descrip ),
+#     City("two", "Big Bear", descrip ),
+#     City("three", "Crested Butte", descrip ),
+#     City("four", "New York", descrip ),
     
-]
+# ]
