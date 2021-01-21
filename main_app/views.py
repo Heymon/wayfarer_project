@@ -147,8 +147,9 @@ def posts_edit(request, post_id):
     return render(request, 'posts/edit.html', context)
 
 def posts_delete(request, post_id):
+    
     Post.objects.get(id=post_id).delete()
-    return redirect('profile')
+    return redirect('cities_detail', city_id = 1)
 
 
 
