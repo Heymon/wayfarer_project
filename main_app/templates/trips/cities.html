@@ -67,14 +67,14 @@
                       </div>
                       <p>where: {{ post.location }}</p>
                       <p>Description: {{ post.text }}</p>
-                      <p>{{ post.created_at}}</p>
+                      <p>{{ post.created_at.date}}</p>
                     </div>
         </div>
       </div>
 
       {% empty %}
 
-      <h3>No posts yet :(</h3>
+      <h3>No posts about {{city_page.name}} yet :(</h3>
 
       {% endfor %}
     </div>

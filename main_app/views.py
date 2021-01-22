@@ -1,14 +1,22 @@
 from django.core.files.base import ContentFile
 from django.http.request import QueryDict
-from main_app.models import Profile, Post, City
-from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Post_Form
+
 from django.shortcuts import render, redirect
 
+# =============MODELS & FORMS===============
+from main_app.models import Profile, Post, City
+from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Post_Form
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login
 
-
+# =============EMAIL===============
 from django.core.mail import EmailMessage, send_mail
+
+# ===========DATE AND TIME===============
+from django.utils.timezone import localtime, now
+# from tzlocal import get_localzone
+from datetime import datetime, timezone
+# import pytz
 
 # Create your views here.
 
@@ -35,11 +43,17 @@ def home (request):
     # context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form, 'signup_error': signup_error_message}
     return render(request, 'home.html', context)
 
+
 def profile(request):
+    
     post_form = Post_Form
     posts = request.user.post_set.all().order_by('-created_at')
     cities = City.objects.all()
-    context = {'cities': cities, 'posts': posts, 'post_form': post_form}
+    # print(get_localzone())
+    # print(request.user.date_joined.astimezone(tz=pytz.timezone('US/Pacific')).date())
+    print((localtime(now()).date()-request.user.date_joined.date()).days)
+    print(request.user.date_joined.date().day)
+    context = {'cities': cities, 'posts': posts, 'post_form': post_form, 'cur_date': localtime(now()).date()}
     return render(request, 'trips/profile.html', context)
 
 
