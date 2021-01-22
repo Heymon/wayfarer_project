@@ -3,7 +3,7 @@ modal = $("#signupModal");
 
 console.log(modal);
 
-const error = $(".error")
+const error = $(".errorlist")
 console.log(error)
 if (error.length !== 0) {
 

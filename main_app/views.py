@@ -13,24 +13,36 @@ from django.core.mail import EmailMessage, send_mail
 # Create your views here.
 
 #=================================ROUTES====================================#
+import json
 
 def home (request):
-    
+    authentication_form = AuthenticationForm()
+    user_form = None
+    profile_form = Profile_Form()
 
     signup_error_message= ''
     # login_error_message= ''
 
+    # if 'signup_error' in request.session:
+    #     signup_error_message = request.session['signup_error']
+    #     del request.session['signup_error']
+    
     if 'signup_error' in request.session:
-        signup_error_message = request.session['signup_error']
+        # user_form = request.session['signup_error']
+        user_form = User_Profile_Form(request.session['signup_error'])
+        # print(user_form)
         del request.session['signup_error']
+    else:
+        user_form = User_Profile_Form()
+        # print(user_form)
     # elif 'login_error' in request.session:
     #     login_error_message = request.session['signup_error']
     #     del request.session['signup_error']
 
-    print(signup_error_message)
-    authentication_form = AuthenticationForm()
-    user_form = User_Profile_Form()
-    profile_form = Profile_Form()
+    # print(signup_error_message)
+    # authentication_form = AuthenticationForm()
+    # user_form = User_Profile_Form()
+    # profile_form = Profile_Form()
     # context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
     context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form, 'signup_error': signup_error_message}
     return render(request, 'home.html', context)
@@ -52,7 +64,7 @@ def signup(request):
         mutable_POST = request.POST.copy()
         user_country = QueryDict(f'cur_city={mutable_POST.pop("cur_city")[0]}')
 
-        print(request.POST["username"])
+        # print(request.POST["username"])
         user_form = User_Profile_Form(mutable_POST)
         if user_form.is_valid():
             user = user_form.save()
@@ -65,10 +77,12 @@ def signup(request):
             login(request, user)
             return redirect('profile')
         else:
-            error_message = user_form.errors
-            print(error_message)
-            request.session['signup_error'] = error_message
-            # return redirect('home', error_message)
+            # error_message = user_form.errors
+            # print(error_message)
+            # request.session['signup_error'] = error_message
+            # print(mutable_POST)
+            # request.session['signup_error'] = user_form.as_table()
+            request.session['signup_error'] = mutable_POST
             return redirect('home')
     
     # error_message = 

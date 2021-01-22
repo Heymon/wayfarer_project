@@ -26,7 +26,7 @@ footer {
 .signup-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .signup-form ul {
@@ -47,6 +47,10 @@ footer {
 }
 
 .error {
+    color: crimson;
+}
+
+.errorlist {
     color: crimson;
 }
 
@@ -215,14 +219,17 @@ footer {
 }
 
 
-
-
-
 #by{
     font-size: 13px;
 }
 
+/* ========================ALL POP UPS ================================ */
 
+
+.modal-body p{
+    display: flex;
+    flex-flow: column;
+}
 
 
 

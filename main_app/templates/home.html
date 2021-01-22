@@ -94,7 +94,9 @@
       <div class="modal-body">
         <form action="{% url 'signup' %}" method="POST" class="signup-form">
           {% csrf_token %}
-          {{user_form.as_p}}
+          {% comment %} {% autoescape off %} {% endcomment %}
+            {{user_form.as_p}}
+          {% comment %} {% endautoescape %} {% endcomment %}
           {{profile_form.as_p}}
             {% if signup_error %}
                 <p class="signup error">{{signup_error}}</p>
