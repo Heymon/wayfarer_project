@@ -4,7 +4,10 @@ body {
     min-height: 100vh;
     flex-direction: column;
     box-sizing: 60%;
+    background-image: url(https://i.imgur.com/l1uFN49.jpg);
+    
 }
+
 
 main {
     flex: 1 0 auto;
@@ -277,9 +280,7 @@ footer {
     font-size: 3.5em;
 }
 
-#carousel {
-    background-color: #F0F2F2;
-}
+
 
 #home-footer-title {
     display: flex;
@@ -298,8 +299,14 @@ footer {
 
 #bttmRow{
     background:#F2AA6B;
+    max-width: 500vh;
 }
-
+#background{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 30%;
+}
 
 
  /* ======================Post Show Page======================== */
