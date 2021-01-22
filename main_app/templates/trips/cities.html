@@ -55,17 +55,17 @@
 
       <div class="main-tab-title">
         <h2 id="cPosts">POSTS</h2>
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postModal" role="button"><i class="fas fa-plus-circle fa-2x"></i></button>
+        <button type="button" class="btn-post" data-bs-toggle="modal" data-bs-target="#postModal" role="button"><i class="fas fa-plus-circle fa-2x"></i></button>
       </div>
       {% for post in posts %}
       <div class="card-post">
         <div class="card-post-content">
                     <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
                     <div class="post-content-text">
-                      <div class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a>
+                      <div class="post-content-title"><a id="postTitle" href="{% url 'show_post' post.id %}">{{ post.title }}</a>
                         <span id="by">by {{post.user.username}}</span>
                       </div>
-                      <p>where: {{ post.location }}</p>
+                      <i class="fa fa-map-marker"  aria-hidden="true"></i>{{ post.location }}</p>
                       <p>Description: {{ post.text }}</p>
                       <p>{{ post.created_at}}</p>
                     </div>
@@ -98,7 +98,7 @@
           <p>{{post_form.text.label_tag}} {{post_form.text}}</p>
           <input type="hidden" name="location" id="id_location" value="{{city_page.id}}">
           <input type="hidden" name="redirect" id="redirect" value="{{city_page.id}}">
-          <input type="submit" value="POST!">
+          <input id="post" type="submit"  value="POST!"></a>
         
         </form>
        
