@@ -133,10 +133,10 @@ footer {
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 350px;
-    margin-left:8%;
+    /* margin-left:8%; */
+    margin: 0 0 10px 0;
     text-align: center;
     background: #afc6cd
-    
     
 }
 
@@ -585,7 +585,12 @@ footer {
 
 /* =======================CITIES PAGE==================================== */
 
+    .city-content{
+        justify-content: center;
+    }
+    
     .city-content-text{
+        margin: 0 0 0 -37%;
         position: absolute;
         padding:2% 4%;
     }
@@ -598,10 +603,10 @@ footer {
 
     /* ========================POST on city================================ */
 
-    .card-post.quick-fix-cities-responsive{
+    /* .card-post.quick-fix-cities-responsive{
 
         margin: 10px 0 0 -119px;
-    }
+    } */
 
     /* .post-content-text.quick-fix-cities-responsive{
 
