@@ -1,14 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>update profile</h1>
+<h1 id="update-title">update profile</h1>
 
+<div class="updateForm">
 <form action="{% url 'update' %}" method="POST">
     {% csrf_token %}
     {{user_update_form.as_p}}
     {{profile_form.as_p}}
-    <input type="submit" value="UPDATE">
+    <input id="update" type="submit" value="UPDATE">
 
 </form>
+</div>
 
 {% endblock %}

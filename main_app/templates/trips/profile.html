@@ -8,17 +8,14 @@
   <div class="row container-fluid">
     <div class="col-xs-12 col-lg-4" >
       <div class="card">
-        <div id="profile-picture-container">
           <img id="profile-picture" src="{{ user.profile.profile_img }}" alt="profile pic">
-        </div>
           <p class="card-subtitle">{{user.first_name}} {{user.last_name}}</p>
           <div class="card-body">
             <p id="idcard-context">
-            {{user.username}}<br>
-            Bio: {{user.bio}}<br>
-            Location: {{ user.profile.cur_city }}<br>
-            Date joined: {{user.date_joined.date}}<br>
-          <a href=" {% url 'update' %}" class="btn btn-info" id="edit-btn">Edit Profile</a>
+            <div class="user"> {{user.username}}</div>
+            <i class="fa fa-map-marker"  aria-hidden="true"></i> {{ user.profile.cur_city }}<br>
+            Date joined: {{user.date_joined}}<br> <br> 
+          <a href=" {% url 'update' %}" class="btn" id="edit-btn">Edit Profile</a>
         </div>
       
     
@@ -29,12 +26,10 @@
 
     <!--Cities description-->
     <div class="col-xs-12 col-lg-8">
-      <div class="tab-content">
-
       <div class="main-tab-title">
-        <h2>POSTS BY YOU</h2>
+        <h2>My Posts</h2>
         {% comment %} <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" role="button"> {% endcomment %}
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postModal" role="button"><i class="fas fa-plus-circle fa-2x"></i></button>
+        <button type="button" class="btn-post" data-bs-toggle="modal" data-bs-target="#postModal" role="button"><i class="fas fa-plus-circle fa-2x"></i></button>
       </div>
       {% for post in posts %}
       <div class="card-post">
@@ -42,10 +37,10 @@
                     <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
                     <div class="post-content-text">
                       <div class="post-content-title">
-                        <a href="{% url 'show_post' post.id %}">{{ post.title }}</a>
+                        <a id="postTitle" href="{% url 'show_post' post.id %}">{{ post.title }}</a>
                         <span id="by">by {{post.user.username}}</span>
                       </div>
-                      <p>where: {{ post.location }}</p>
+                      <i class="fa fa-map-marker"  aria-hidden="true"></i>{{ post.location }}</p>
                       <p>Description: {{ post.text }}</p>
                       {% comment %} <p>{{(today-post.created_at.date).days}}days ago </p> {% endcomment %}
                       <p>{{ post.created_at.date}}</p>
@@ -58,7 +53,7 @@
       <h3>Time for your first post :)</h3>
 
       {% endfor %}
-    </div>
+    
   </div>
 </div>
 
@@ -85,30 +80,6 @@
 </div>
 
 
-  
-
-<!--
-  <div class="post">
-    <button type="button" id="post" class="btn">Post A Trip</button>
-</div>
-<div id="myForm" class="hide">
-    <form action="/echo/html/" id="popForm" method="get">
-        <div>
-            <label for="title">Title:</label>
-            <input type="title" name="title" id="title" class="form-control input-md">
-            
-            <label for="about">Describe Your Trip:</label>
-            <textarea rows="10" name="about" id="about" class="form-control input-md"></textarea>
-            <button type="button" class="btn btn-primary
-            
-            
-            " data-loading-text="Sending info.."><em class="icon-ok"></em> Save</button>
-        </div>
-    </form>
-</div>
-<div id="result"></div>
-</div>
--->
 
 
 
