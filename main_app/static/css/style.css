@@ -98,6 +98,7 @@ footer {
     font-size: 20px;
     margin: 0;
 }
+
 .card-subtitle{
     font-size: 25px;
     font-weight:bold;
@@ -112,10 +113,11 @@ footer {
     justify-content: flex-start;
 }
 
-.col-8{
+.col-xs-12.col-lg-8{
     border: 1px solid grey;
     padding: 1%;
-    background-color: #E0EEEC;
+    background: rgb(39,139,129);
+    background: linear-gradient(90deg, rgba(39,139,129,1) 0%, rgba(122,219,210,1) 100%, rgba(0,212,255,1) 100%);
 }
 
 .main-tab-title{
@@ -134,13 +136,25 @@ footer {
     margin: 12px 0 0 0;
 }
 
-/* =======================CITIES PAGE==================================== */
-.card{
-    background: #49A69C
+#profile-picture{
+    border: 2px solid black;
+    border-radius: 4px;
+    width: 100%;
 }
 
+#profile-picture-container{
+    display: flex;
+    align-items: center;
+    padding: 5%;
+}
+
+/* =======================CITIES PAGE==================================== */
+/* .card{
+    background: rgb(242,184,114);
+    background: linear-gradient(180deg, rgba(242,184,114,1) 3%, rgba(252,148,54,1) 100%, rgba(0,212,255,1) 100%);
+} */
+
 .card-body{
-    background: #49A69C;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -158,11 +172,6 @@ footer {
 
 .city-content-text{
     padding:2%;
-}
-
-.card-subtitle {
-    margin-top: .25rem;
-    margin-bottom: 0.50rem;
 }
 
 .img-thumbnail{
@@ -185,6 +194,7 @@ footer {
 }
 
 .post-content-text{
+    width: 73%;
     display: flex;
     flex-direction: column;
     padding: 0% 0% 0% 3%;
@@ -200,15 +210,19 @@ footer {
 .post-content-text>p:last-child{
     color:#49464E;
     font-size: 14px;
-    margin: 58px 0px 0 253px;
+    margin: 62px 0 0 0;
+    align-self: flex-end;
+
 }
 
 .card-post-content{
     display: flex;
     flex-direction: row;
     padding: 3%;
-    background-color: #ECF1F0;
     margin-bottom: 2%;
+    background: rgb(39,139,129);
+    background: linear-gradient(90deg, rgba(39,139,129,1) 0%, rgba(122,219,210,1) 100%, rgba(0,212,255,1) 100%);
+    border: 1px solid white;
 }
 
 
@@ -297,6 +311,11 @@ footer {
     margin-top:5%;
 }
 
+.card{
+    background: rgb(242,184,114);
+    background: linear-gradient(270deg, rgba(242,184,114,1) 3%, rgba(242,158,82,1) 100%, rgba(0,212,255,1) 100%);
+}
+
 .card-show{
     border: 2px solid grey;
     background-color: #ECF1F0;
@@ -305,10 +324,14 @@ footer {
 }
 
 #post-img{
-    border: 1px solid #ddd;
+    border: 1px solid black;
     border-radius: 4px;
-    padding: 5px;
     width: 250px;
+}
+
+.btn.btn-warning{
+    background: rgb(242,184,114);
+    background: linear-gradient(270deg, rgba(242,184,114,1) 3%, rgba(242,158,82,1) 100%, rgba(0,212,255,1) 100%);
 }
 
 
@@ -389,3 +412,33 @@ footer {
 
 
 
+
+
+/* =======================Responsive Design======================== */
+
+
+@media (max-width:992px) { 
+    .btn.btn-warning{
+        margin: 0px;
+    }
+    #profile-picture{
+        width: 100%;
+    }
+    #profile-picture-container{
+        display: flex;
+        align-items: center;
+        padding:5% 30% 5% 30%;
+    }
+    .row.container-fluid{
+        margin: 0;
+    }
+    #idcard-context{
+        font-size: 1em;
+    }
+    #post-img{
+        display: none;
+    }
+    .col-xs-12.col-lg-4{
+        padding:0px 12px 12px 12px;
+    }
+} 
