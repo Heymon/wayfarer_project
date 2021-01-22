@@ -44,7 +44,13 @@ def profile(request):
 
 
 def about (request):
-    return render(request, 'about.html')
+
+    authentication_form = AuthenticationForm()
+    user_form = User_Profile_Form()
+    profile_form = Profile_Form()
+   
+    context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
+    return render(request, 'about.html', context)
 
 def signup(request):
     error_message = ''

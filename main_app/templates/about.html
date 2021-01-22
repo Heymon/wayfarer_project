@@ -86,3 +86,84 @@
   </div>
 </div>
 {% endblock%}
+
+{% block modal %}
+
+{% comment %} {% sign up modal %} {% endcomment %}
+<div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'signup' %}" method="POST" class="signup-form">
+          {% csrf_token %}
+          {% comment %} {{user_form.as_p}} {% endcomment %}
+          {% if user_form.username.errors %}
+            {{user_form.username.errors}}
+          {% endif %}
+          <p>{{user_form.username.label_tag}} {{user_form.username}}</p>
+
+          {% if user_form.email.errors %}
+            {{user_form.email.errors}}
+          {% endif %}
+          <p>{{user_form.email.label_tag}} {{user_form.email}}</p>
+
+          {% if user_form.first_name.errors %}
+            {{user_form.first_name.errors}}
+          {% endif %}
+          <p>{{user_form.first_name.label_tag}} {{user_form.first_name}}</p>
+
+          {% if user_form.last_name.errors %}
+            {{user_form.last_name.errors}}
+          {% endif %}
+          <p>{{user_form.last_name.label_tag}} {{user_form.last_name}}</p>
+  
+          {{profile_form.as_p}}
+
+          {% if user_form.password1.errors %}
+            {{user_form.password1.errors}}
+          {% endif %}
+          <p>{{user_form.password1.label_tag}} {{user_form.password1}}</p>
+
+          {% if user_form.password2.errors %}
+            {{user_form.password1.help_text}}
+            {{user_form.password2.errors}}
+          {% endif %}
+          <p>{{user_form.password2.label_tag}} {{user_form.password2}}</p>
+
+          <input id="signup" type="submit" value="Sign Up">
+          <input type="hidden" name="next" value="{{next}}">
+      
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} {% login modal %} {% endcomment %}
+<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Log in</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+          {{ auth_form.as_p}}
+            {% comment %} {% if login_error %}
+                <p class="login error">{{login_error}}</p>
+            {% endif %} {% endcomment %}
+          <input id="login" type="submit" value="Log in">
+          <input type="hidden" name="next" value="{{next}}">
+      
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
