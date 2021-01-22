@@ -4,7 +4,11 @@ body {
     min-height: 100vh;
     flex-direction: column;
     box-sizing: 60%;
+    background-image: url(https://i.imgur.com/l1uFN49.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
+
 
 main {
     flex: 1 0 auto;
@@ -50,6 +54,8 @@ footer {
     color: crimson;
 }
 
+
+/*signup button*/
 #signup {
     background:white;
     display:inline-block;
@@ -94,6 +100,50 @@ footer {
 /* =======================PROFILE PAGE==================================== */
 
 
+.btn-post{
+    color:white;
+    background: #3B565E;
+    border-radius: 10px;
+}
+
+.row{
+    display: flex;
+    padding: 3%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.main-tab-title{
+    color: #3B565E;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+
+.main-tab-title>*{
+    margin: 0px 33px 0 21px;
+}
+
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    margin-left:8%;
+    text-align: center;
+    background: #afc6cd
+    
+    
+}
+
+#profile-picture{
+    display: flex;
+    align-items: center;
+    margin:7%;
+    border: 3px solid white;
+    border-radius: 5%;
+}
+
 #idcard-context{
     font-size: 20px;
     margin: 0;
@@ -106,63 +156,84 @@ footer {
     margin-bottom: 0px;
 }
 
-.row{
-    display: flex;
-    padding: 3%;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.col-xs-12.col-lg-8{
-    border: 1px solid grey;
-    padding: 1%;
-    background: rgb(39,139,129);
-    background: linear-gradient(90deg, rgba(39,139,129,1) 0%, rgba(122,219,210,1) 100%, rgba(0,212,255,1) 100%);
-}
-
-.main-tab-title{
-
-    display: flex;
-    justify-content: space-between;
-    margin: 10px 0;
-}
-
-.main-tab-title>*{
-    
-    margin: 0px 33px 0 21px;
+.card-post{
+    background: #bac4c7;
+    border: 2px solid #ddd;
+    margin-bottom: 2%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 #edit-btn{
     margin: 12px 0 0 0;
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346; 
+    text-align:center;
+    transition: all 0.2s;
 }
 
-#profile-picture{
-    border: 2px solid black;
-    border-radius: 4px;
-    width: 100%;
+/*update btn*/
+#update{
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346; 
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
 }
 
-#profile-picture-container{
-    display: flex;
-    align-items: center;
-    padding: 5%;
+#update-title{
+    text-align: center;
+    margin-top: 5%;
 }
+
+.updateForm{
+    display: block;
+    text-align: center;
+}
+
+
 
 /* =======================CITIES PAGE==================================== */
-/* .card{
-    background: rgb(242,184,114);
-    background: linear-gradient(180deg, rgba(242,184,114,1) 3%, rgba(252,148,54,1) 100%, rgba(0,212,255,1) 100%);
-} */
+
 
 .card-body{
-    display: flex;
+    display: center;
     flex-direction: column;
     align-items: flex-start;
     padding: 3%;
+    
 }
+#city-card{
+    background: rgb(39,139,129);
+    background: linear-gradient(90deg, rgba(39,139,129,1) 0%, rgba(122,219,210,1) 100%, rgba(0,212,255,1) 100%);
+}
+
 #citiesh1{
-    margin-left: 3%;
+    margin-left: 5px;
 }
+
+#cPosts{
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.main-tab-title{
+    margin-top: 2%;
+}
+
 .city-content{
     display: flex;
     /* flex-direction: row; */
@@ -175,22 +246,37 @@ footer {
 }
 
 .img-thumbnail{
-
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
     width: 250px;
     height: 250px;
 }
 
-/* ========================POSTS================================ */
-
-#cPosts{
-    font-size: 25px;
-    margin-left:2%;
-    text-transform: capitalize;
+#post-img{
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 200px;
+    height: 200px;
 }
 
+
+
+/* ========================POSTS================================ */
+
+
 .card-post{
-    background: #E0EEEC;
-    
+    display: flex;
+    flex-direction: row;
+    box-shadow: #3B565E 2px;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    background: #bac4c7;
+    border: 2px solid #ddd;
+    margin-bottom: 2%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+   
 }
 
 .post-content-text{
@@ -198,6 +284,7 @@ footer {
     display: flex;
     flex-direction: column;
     padding: 0% 0% 0% 3%;
+    
 }
 
 .post-content-title{
@@ -205,12 +292,18 @@ footer {
     display: flex;
     flex-flow: column;
     margin: 16px 0;
+    
+}
+
+#postTitle{
+    color: #3B565E;
+    text-decoration: none;
 }
 
 .post-content-text>p:last-child{
     color:#49464E;
     font-size: 14px;
-    margin: 62px 0 0 0;
+    margin: 20px 0 0 0;
     align-self: flex-end;
 
 }
@@ -220,19 +313,27 @@ footer {
     flex-direction: row;
     padding: 3%;
     margin-bottom: 2%;
-    background: rgb(39,139,129);
-    background: linear-gradient(90deg, rgba(39,139,129,1) 0%, rgba(122,219,210,1) 100%, rgba(0,212,255,1) 100%);
-    border: 1px solid white;
+    
 }
-
-
-
-
 
 #by{
     font-size: 13px;
 }
 
+#post{
+    margin: 12px 0 0 0;
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346; 
+    text-align:center;
+    transition: all 0.2s;
+}
 
 
 
@@ -277,9 +378,7 @@ footer {
     font-size: 3.5em;
 }
 
-#carousel {
-    background-color: #F0F2F2;
-}
+
 
 #home-footer-title {
     display: flex;
@@ -298,8 +397,32 @@ footer {
 
 #bttmRow{
     background:#F2AA6B;
+    max-width: 500vh;
+}
+#background{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 30%;
 }
 
+#wayfarer{
+    margin-bottom:2%;
+}
+
+/* ======================About Page======================== */
+#headingA{
+    color:#135952;
+    text-shadow: 3px black;
+    margin-left: 2%;
+    margin-top:3%;
+    margin-bottom: 2%;
+
+}
+
+#about {
+    background: #edc39e;
+}
 
 
  /* ======================Post Show Page======================== */
@@ -311,27 +434,11 @@ footer {
     margin-top:5%;
 }
 
-.card{
-    background: rgb(242,184,114);
-    background: linear-gradient(270deg, rgba(242,184,114,1) 3%, rgba(242,158,82,1) 100%, rgba(0,212,255,1) 100%);
-}
-
-.card-show{
-    border: 2px solid grey;
-    background-color: #ECF1F0;
-    box-shadow: #3B565E 2px;
-    margin-bottom: 2%;
-}
-
-#post-img{
-    border: 1px solid black;
+.post-img{
+    border: 1px solid #ddd;
     border-radius: 4px;
-    width: 250px;
-}
-
-.btn.btn-warning{
-    background: rgb(242,184,114);
-    background: linear-gradient(270deg, rgba(242,184,114,1) 3%, rgba(242,158,82,1) 100%, rgba(0,212,255,1) 100%);
+    padding: 5px;
+    width: 150px;
 }
 
 
@@ -340,8 +447,14 @@ footer {
     display: flex;
     flex-direction: row;
     padding: 3%;
-    border: 1px solid black;
-    background-color: #ECF1F0;
+    box-shadow: #3B565E 2px;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    background: #bac4c7;
+    border: 2px solid #ddd;
+    margin-bottom: 2%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    
 }
 
 .post-content-show-text{
@@ -350,9 +463,10 @@ footer {
     padding: 0% 3% 0% 3%;
 }
 
+/*---Edit/Delete btn ---*/
 #edit {
     background:white;
-    display:inline-block;
+    display: inline-block;
     padding:0.3em 1.2em;
     margin:0 0.1em 0.1em 0;
     border:0.16em solid #FC9346;
