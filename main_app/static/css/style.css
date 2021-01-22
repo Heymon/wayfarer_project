@@ -1,0 +1,617 @@
+body {
+    background-color: #ECF1F0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    box-sizing: 60%;
+    background-image: url(https://i.imgur.com/l1uFN49.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+main {
+    flex: 1 0 auto;
+}
+
+footer {
+    padding-top: 0;
+    text-align: right;
+}
+
+/* ================================NAVBAR====================== */
+
+.navbar{
+    background-color: #135952;
+    
+}
+
+/* =======================SIGN UP FORM========================= */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+}
+
+.signup-form ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    text-align: center;
+    padding: 0% 5% 0% 5%;
+    margin-block-end: 0px;
+}
+
+.signup-form ul li:before{
+    content: '- ';
+}
+
+.helptext {
+    display: none;
+}
+
+.error {
+    color: crimson;
+}
+
+.errorlist {
+    color: crimson;
+}
+
+
+/*signup button*/
+#signup {
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:1em 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#signup:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+/*login button*/
+#login {
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346; 
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#login:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+
+
+
+    
+/* =======================PROFILE PAGE==================================== */
+
+
+.btn-post{
+    color:white;
+    background: #3B565E;
+    border-radius: 10px;
+}
+
+.row{
+    display: flex;
+    padding: 3%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+
+.main-tab-title{
+    color: #3B565E;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3%;
+}
+
+.main-tab-title>*{
+    margin: 0px 33px 0 21px;
+}
+
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    /* margin-left:8%; */
+    margin: 0 0 10px 0;
+    text-align: center;
+    background: #afc6cd
+    
+}
+
+#profile-picture{
+    display: flex;
+    align-items: center;
+    margin:7%;
+    border: 3px solid white;
+    border-radius: 5%;
+}
+
+#idcard-context{
+    font-size: 20px;
+    margin: 0;
+}
+
+.card-subtitle{
+    font-size: 25px;
+    font-weight:bold;
+    margin-left: 2%;
+    margin-bottom: 0px;
+}
+
+.card-post{
+    background: #bac4c7;
+    border: 2px solid #ddd;
+    margin-bottom: 2%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+#edit-btn{
+    margin: 12px 0 0 0;
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346; 
+    text-align:center;
+    transition: all 0.2s;
+}
+
+/*update btn*/
+#update{
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346; 
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+}
+
+#update-title{
+    text-align: center;
+    margin-top: 5%;
+}
+
+.updateForm{
+    display: block;
+    text-align: center;
+}
+
+
+
+/* =======================CITIES PAGE==================================== */
+
+
+.card-body{
+    display: center;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3%;
+    
+}
+#city-card{
+    background: rgb(39,139,129);
+    background: linear-gradient(90deg, rgba(39,139,129,1) 0%, rgba(122,219,210,1) 100%, rgba(0,212,255,1) 100%);
+}
+
+#citiesh1{
+    margin-left: 5px;
+}
+
+#cPosts{
+    font-size: 25px;
+    text-transform: capitalize;
+}
+
+.main-tab-title{
+    margin-top: 2%;
+}
+
+.city-content{
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+.city-content-text{
+    padding:2%;
+}
+
+.img-thumbnail{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 250px;
+    height: 250px;
+}
+
+#post-img{
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 200px;
+    height: 200px;
+}
+
+
+
+/* ========================POSTS================================ */
+
+
+.card-post{
+    display: flex;
+    flex-direction: row;
+    box-shadow: #3B565E 2px;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    background: #bac4c7;
+    border: 2px solid #ddd;
+    margin-bottom: 2%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+   
+}
+
+.post-content-text{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0% 0% 0% 3%;
+    
+}
+
+.post-content-title{
+    font-size: 24px;
+    display: flex;
+    flex-flow: column;
+    margin: 16px 0;
+    
+}
+
+#postTitle{
+    color: #3B565E;
+    text-decoration: none;
+    transition: linear .25s;
+}
+
+#postTitle:hover{
+    color: rgb(34, 168, 155);
+    text-decoration: none;
+    transform: scale(1.1)
+}
+
+.post-content-text>p:last-child{
+    color:#49464E;
+    font-size: 14px;
+    margin: 20px 0 0 0;
+    align-self: flex-end;
+
+}
+
+.card-post-content{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding: 3%;
+    margin-bottom: 2%;
+    
+}
+
+
+#by{
+    font-size: 13px;
+}
+
+
+#post-btn{
+    margin: 12px 0 0 0;
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346; 
+    text-align:center;
+    transition: all 0.2s;
+}
+
+
+/* ========================ALL POP UPS ================================ */
+
+.modal-body p{
+    display: flex;
+    flex-flow: column;
+}
+
+
+
+/* ==================================PROFILE TOGGLES======================================== */
+#cities {
+    -webkit-transition: width 2s ease;
+    -moz-transition: width 2s ease;
+    -o-transition: width 2s ease;
+    transition: width 2s ease;
+    
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #F0F2F2;
+    vertical-align: middle;
+    line-height: 30px;
+    height: 30px;
+
+    width: 0px;
+}
+#cities.in {
+    width: 220px;
+}
+
+/* ======================HOME PAGE======================== */
+
+#wayfarer{
+    font-size: 40px;
+    font-style: italic;
+    color: #135952;
+}
+
+/* IMG CAROUSEL */
+.carousel-img {
+    height: 70vh;
+    width: 100vh
+}
+
+.fa-arrow-alt-circle-right, .fa-arrow-alt-circle-left {
+    color: #3B565E;
+    font-size: 3.5em;
+}
+
+
+
+#home-footer-title {
+    display: flex;
+    justify-content: center;
+}
+
+.topic-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.topic-content h3 {
+    display: flex;
+    justify-content: center;
+}
+
+#bttmRow{
+    background:#F2AA6B;
+    max-width: 500vh;
+}
+#background{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 30%;
+}
+
+#wayfarer{
+    margin-bottom:2%;
+}
+
+/* ======================About Page======================== */
+#headingA{
+    color:#135952;
+    text-shadow: 3px black;
+    margin-left: 2%;
+    margin-top:3%;
+    margin-bottom: 2%;
+
+}
+
+#about {
+    background: #edc39e;
+}
+
+.about-img-container {
+    height: 150px;
+    width: 110px;
+    padding: 0;
+    border: 2px solid #ddd;
+    
+}
+
+.about-img {
+    height: 150px;
+    width: 110px;
+    
+}
+
+
+ /* ======================Post Show Page======================== */
+
+#heading{
+    color:#135952;
+    text-shadow: 3px black;
+    margin-left: 10%;
+    margin-top:5%;
+}
+
+.post-img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+
+
+
+.card-show-content{
+    display: flex;
+    flex-direction: row;
+    padding: 3%;
+    box-shadow: #3B565E 2px;
+    margin-bottom: 2%;
+    border-radius: 10px;
+    background: #bac4c7;
+    border: 2px solid #ddd;
+    margin-bottom: 2%;
+    box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+    
+}
+
+.post-content-show-text{
+    display: flex;
+    flex-direction: column;
+    padding: 0% 3% 0% 3%;
+}
+
+/*---Edit/Delete btn ---*/
+#edit {
+    background:white;
+    display: inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#edit:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+#delete {
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#delete:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+/* =======================Edit Modal======================== */
+
+.modal-content{
+    background:#ECF1F0;
+}
+
+#save{
+    background:white;
+    display:inline-block;
+    padding:0.3em 1.2em;
+    margin:0 0.1em 0.1em 0;
+    border:0.16em solid #FC9346;
+    border-radius:2em;
+    box-sizing: border-box;
+    font-weight: 500;
+    color:#FC9346;
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+    }
+#save:hover{
+    border-color: rgba(255,255,255,1);
+    }
+
+
+
+
+
+/* =======================Responsive Design======================== */
+
+
+@media (max-width:992px) { 
+    .btn.btn-warning{
+        margin: 0px;
+    }
+
+    .row.container-fluid{
+        margin: 0;
+    }
+    #idcard-context{
+        font-size: 1em;
+    }
+    #post-img{
+        display: none;
+    }
+    .col-xs-12.col-lg-4{
+        padding:0px 12px 12px 12px;
+    }
+
+/* =======================CITIES PAGE==================================== */
+
+    .city-content{
+        justify-content: center;
+    }
+    
+    .city-content-text{
+        margin: 0 0 0 -37%;
+        position: absolute;
+        padding:2% 4%;
+    }
+
+    .img-thumbnail{
+
+        width: 250px;
+        height: 250px;
+    }
+
+    /* ========================POST on city================================ */
+
+    /* .card-post.quick-fix-cities-responsive{
+
+        margin: 10px 0 0 -119px;
+    } */
+
+    /* .post-content-text.quick-fix-cities-responsive{
+
+        width: 100%;
+    } */
+    
+} 

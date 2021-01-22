@@ -1,2 +1,87 @@
-{% extends 'trips/base.html' %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!--id card-->
+<div class="container-fluid">
+  <div class="row container-fluid">
+    <div class="col-xs-12 col-lg-4" >
+      <div class="card">
+          <img id="profile-picture" src="{{ user.profile.profile_img }}" alt="profile pic">
+          <p class="card-subtitle">{{user.first_name}} {{user.last_name}}</p>
+          <div class="card-body">
+            <p id="idcard-context">
+            <div class="user"> {{user.username}}</div>
+            <i class="fa fa-map-marker"  aria-hidden="true"></i> {{ user.profile.cur_city }}<br>
+            Date joined: {{user.date_joined}}<br> <br> 
+          <a href=" {% url 'update' %}" class="btn" id="edit-btn">Edit Profile</a>
+        </div>
+      
+    
+        
+        
+      </div>
+    </div>
+
+    <!--Cities description-->
+    <div class="col-xs-12 col-lg-8">
+      <div class="main-tab-title">
+        <h2>My Posts</h2>
+        {% comment %} <a href="#" data-bs-toggle="modal" data-bs-target="#signupModal" role="button"> {% endcomment %}
+        <button type="button" class="btn-post" data-bs-toggle="modal" data-bs-target="#postModal" role="button"><i class="fas fa-plus-circle fa-2x"></i></button>
+      </div>
+      {% for post in posts %}
+      <div class="card-post">
+        <div class="card-post-content">
+                    <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
+                    <div class="post-content-text">
+                      <div class="post-content-title">
+                        <a id="postTitle" href="{% url 'show_post' post.id %}">{{ post.title }}</a>
+                        <span id="by">by {{post.user.username}}</span>
+                      </div>
+                      <i class="fa fa-map-marker"  aria-hidden="true"></i>{{ post.location }}</p>
+                      <p>Description: {{ post.text }}</p>
+                      {% comment %} <p>{{(today-post.created_at.date).days}}days ago </p> {% endcomment %}
+                      <p>{{ post.created_at.date}}</p>
+                    </div>
+        </div>
+      </div>
+
+      {% empty %}
+
+      <h3>Time for your first post :)</h3>
+
+      {% endfor %}
+    
+  </div>
+</div>
+
+
+{% comment %} {% create post modal %} {% endcomment %}
+<div class="modal fade" id="postModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add a Post</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'post_create' %}" method="post">
+          {% csrf_token %}
+          {{post_form.as_p}}
+          <input id="post-btn" type="submit" value="POST!">
+        
+        </form>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}
 

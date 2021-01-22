@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import django_on_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -77,8 +78,8 @@ WSGI_APPLICATION = 'wayfare_project.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'wayfarer',
     }
 }
 
@@ -120,3 +121,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+#Page that users go to once logged in
+LOGIN_REDIRECT_URL = '/profile/'
+
+LOGOUT_REDIRECT_URL = '/'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = '587'
+
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'No Reply <noreplay@example.com>'
+
+# no reply
+EMAIL_HOST_USER = 'noreply.wayfare@gmail.com'
+EMAIL_HOST_PASSWORD = 'noreplypassword'
+
+# team email
+# EMAIL_HOST_USER = 'thecodenators@gmail.com'
+# EMAIL_HOST_PASSWORD = 'wayfarepassword'
+
+# DJANGO
+django_on_heroku.settings(locals())

@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 id="headingA">About The Codenators</h1>
+
+<div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+        Brittany Morataya
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div id="about"class="accordion-body row">
+          <div class="about-img-container col-xs-12 col-md-2">
+            <img class="about-img" src="https://i.imgur.com/UCWel4E.jpg?1" alt="">
+          </div>
+          <div  class="about-body col-xs-12 col-md-10">
+            
+              
+            <p>
+            An enthusiastic junior software engineer who enjoys figuring out solutions and constructing front end magic. During down time Brittany enjoys getting lost in the world and exploring or binge watching netflix.<br>
+            Upland,CA
+            </p>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        Jackson Dawson
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div id="about" class="accordion-body row">
+        <div  class="about-img-container col-xs-12 col-md-2">
+          <img class="about-img" src="https://i.imgur.com/99y5J3E.jpg" alt="">
+        </div>
+        <div class="about-body col-xs-12 col-md-10">
+          Bio:
+          <p>
+          A young software engineer that excels in object oriented programing. I enjoy web functionality and relax with some fun css!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+        Jonathan Espana
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body row">
+        <div class="about-img-container col-xs-12 col-md-2">
+          <img class="about-img" src="https://i.ibb.co/R7ZC9L0/00100s-PORTRAIT-00100-BURST20181016193210109-COVER.jpg" alt="">
+        </div>
+        <div class="about-body col-xs-12 col-md-10">
+          Bio:
+          <p>
+            I am a software engineer helping build and design web-based solutions with an emphasis on growth and profitability. If I’m away from my keyboard you can find me building custom Harley Davidson choppers or snowboarding
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+        Ramon Cavalleiro
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+      <div id="about" class="accordion-body row">
+        <div class="about-img-container col-xs-12 col-md-2">
+          <img class="about-img" src="https://i.ibb.co/SPmpPqX/Snapchat-1858323889.jpg" alt="">
+        </div>
+        <div class="about-body col-xs-12 col-md-10">
+          Bio:
+          <p>
+          I am a programmer, I will translate your ideas into/with the computer. With the power of imagination, the games, the softwares and the experiences provided to my clients will have the flexibility necessary to be the connection for them, between the Internet of things and the humors of today. 
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock%}
+
+{% block modal %}
+
+{% comment %} {% sign up modal %} {% endcomment %}
+<div class="modal fade" id="signupModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'signup' %}" method="POST" class="signup-form">
+          {% csrf_token %}
+          {% comment %} {{user_form.as_p}} {% endcomment %}
+          {% if user_form.username.errors %}
+            {{user_form.username.errors}}
+          {% endif %}
+          <p>{{user_form.username.label_tag}} {{user_form.username}}</p>
+
+          {% if user_form.email.errors %}
+            {{user_form.email.errors}}
+          {% endif %}
+          <p>{{user_form.email.label_tag}} {{user_form.email}}</p>
+
+          {% if user_form.first_name.errors %}
+            {{user_form.first_name.errors}}
+          {% endif %}
+          <p>{{user_form.first_name.label_tag}} {{user_form.first_name}}</p>
+
+          {% if user_form.last_name.errors %}
+            {{user_form.last_name.errors}}
+          {% endif %}
+          <p>{{user_form.last_name.label_tag}} {{user_form.last_name}}</p>
+  
+          {{profile_form.as_p}}
+
+          {% if user_form.password1.errors %}
+            {{user_form.password1.errors}}
+          {% endif %}
+          <p>{{user_form.password1.label_tag}} {{user_form.password1}}</p>
+
+          {% if user_form.password2.errors %}
+            {{user_form.password1.help_text}}
+            {{user_form.password2.errors}}
+          {% endif %}
+          <p>{{user_form.password2.label_tag}} {{user_form.password2}}</p>
+
+          <input id="signup" type="submit" value="Sign Up">
+          <input type="hidden" name="next" value="{{next}}">
+      
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} {% login modal %} {% endcomment %}
+<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Log in</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+          {{ auth_form.as_p}}
+            {% comment %} {% if login_error %}
+                <p class="login error">{{login_error}}</p>
+            {% endif %} {% endcomment %}
+          <input id="login" type="submit" value="Log in">
+          <input type="hidden" name="next" value="{{next}}">
+      
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
