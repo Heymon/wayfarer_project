@@ -438,6 +438,19 @@ footer {
     background: #edc39e;
 }
 
+.about-img-container {
+    height: 150px;
+    width: 110px;
+    padding: 0;
+    border: 2px solid #ddd;
+    
+}
+
+.about-img {
+    height: 150px;
+    width: 110px;
+    
+}
 
  /* ======================Post Show Page======================== */
 
