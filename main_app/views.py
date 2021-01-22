@@ -1,50 +1,70 @@
 from django.core.files.base import ContentFile
 from django.http.request import QueryDict
-from main_app.models import Profile, Post, City
-from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Post_Form
+
 from django.shortcuts import render, redirect
 
+# =============MODELS & FORMS===============
+from main_app.models import Profile, Post, City
+from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Post_Form
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login
 
-
+# =============EMAIL===============
 from django.core.mail import EmailMessage, send_mail
+
+# ===========DATE AND TIME===============
+from django.utils.timezone import localtime, now
+# from tzlocal import get_localzone
+from datetime import datetime, timezone
+# import pytz
 
 # Create your views here.
 
 #=================================ROUTES====================================#
+import json
 
 def home (request):
-    
 
-    signup_error_message= ''
-    # login_error_message= ''
-
-    if 'signup_error' in request.session:
-        signup_error_message = request.session['signup_error']
-        del request.session['signup_error']
-    # elif 'login_error' in request.session:
-    #     login_error_message = request.session['signup_error']
-    #     del request.session['signup_error']
-
-    print(signup_error_message)
     authentication_form = AuthenticationForm()
-    user_form = User_Profile_Form()
-    profile_form = Profile_Form()
-    # context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
-    context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form, 'signup_error': signup_error_message}
+    user_form = None
+    profile_form = None
+    
+    if 'signup_error' in request.session:
+        user_form = User_Profile_Form(request.session['signup_error'])
+        profile_form = Profile_Form(request.session['cur_profile'])
+        # print(user_form)
+        del request.session['signup_error']
+        del request.session['cur_profile']
+    else:
+        user_form = User_Profile_Form()
+        profile_form = Profile_Form()
+   
+    context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
+    # context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form, 'signup_error': signup_error_message}
     return render(request, 'home.html', context)
 
+
 def profile(request):
+    
     post_form = Post_Form
     posts = request.user.post_set.all().order_by('-created_at')
     cities = City.objects.all()
-    context = {'cities': cities, 'posts': posts, 'post_form': post_form}
+    # print(get_localzone())
+    # print(request.user.date_joined.astimezone(tz=pytz.timezone('US/Pacific')).date())
+    print((localtime(now()).date()-request.user.date_joined.date()).days)
+    print(request.user.date_joined.date().day)
+    context = {'cities': cities, 'posts': posts, 'post_form': post_form, 'cur_date': localtime(now()).date()}
     return render(request, 'trips/profile.html', context)
 
 
 def about (request):
-    return render(request, 'about.html')
+
+    authentication_form = AuthenticationForm()
+    user_form = User_Profile_Form()
+    profile_form = Profile_Form()
+   
+    context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
+    return render(request, 'about.html', context)
 
 def signup(request):
     error_message = ''
@@ -52,7 +72,7 @@ def signup(request):
         mutable_POST = request.POST.copy()
         user_country = QueryDict(f'cur_city={mutable_POST.pop("cur_city")[0]}')
 
-        print(request.POST["username"])
+        # print(request.POST["username"])
         user_form = User_Profile_Form(mutable_POST)
         if user_form.is_valid():
             user = user_form.save()
@@ -65,17 +85,10 @@ def signup(request):
             login(request, user)
             return redirect('profile')
         else:
-            error_message = user_form.errors
-            print(error_message)
-            request.session['signup_error'] = error_message
-            # return redirect('home', error_message)
+            request.session['cur_profile'] = user_country
+            request.session['signup_error'] = mutable_POST
             return redirect('home')
     
-    # error_message = 
-    # user_form = UserProfileForm()
-    # profile_form = Profile_Form()
-    # context = {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message}
-    # return render(request, 'registration/signup.html', context)
 
 def update(request):
     print('isnotvalid')

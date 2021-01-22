@@ -30,7 +30,7 @@ footer {
 .signup-form {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
 }
 
 .signup-form ul {
@@ -54,13 +54,17 @@ footer {
     color: crimson;
 }
 
+.errorlist {
+    color: crimson;
+}
+
 
 /*signup button*/
 #signup {
     background:white;
     display:inline-block;
     padding:0.3em 1.2em;
-    margin:0 0.1em 0.1em 0;
+    margin:1em 0.1em 0.1em 0;
     border:0.16em solid #FC9346;
     border-radius:2em;
     box-sizing: border-box;
@@ -129,10 +133,10 @@ footer {
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 350px;
-    margin-left:8%;
+    /* margin-left:8%; */
+    margin: 0 0 10px 0;
     text-align: center;
     background: #afc6cd
-    
     
 }
 
@@ -280,7 +284,7 @@ footer {
 }
 
 .post-content-text{
-    width: 73%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 0% 0% 0% 3%;
@@ -316,6 +320,7 @@ footer {
 }
 
 .card-post-content{
+    width: 100%;
     display: flex;
     flex-direction: row;
     padding: 3%;
@@ -323,11 +328,13 @@ footer {
     
 }
 
+
 #by{
     font-size: 13px;
 }
 
-#post{
+
+#post-btn{
     margin: 12px 0 0 0;
     background:white;
     display:inline-block;
@@ -342,6 +349,13 @@ footer {
     transition: all 0.2s;
 }
 
+
+/* ========================ALL POP UPS ================================ */
+
+.modal-body p{
+    display: flex;
+    flex-flow: column;
+}
 
 
 
@@ -568,4 +582,35 @@ footer {
     .col-xs-12.col-lg-4{
         padding:0px 12px 12px 12px;
     }
+
+/* =======================CITIES PAGE==================================== */
+
+    .city-content{
+        justify-content: center;
+    }
+    
+    .city-content-text{
+        margin: 0 0 0 -37%;
+        position: absolute;
+        padding:2% 4%;
+    }
+
+    .img-thumbnail{
+
+        width: 250px;
+        height: 250px;
+    }
+
+    /* ========================POST on city================================ */
+
+    /* .card-post.quick-fix-cities-responsive{
+
+        margin: 10px 0 0 -119px;
+    } */
+
+    /* .post-content-text.quick-fix-cities-responsive{
+
+        width: 100%;
+    } */
+    
 } 

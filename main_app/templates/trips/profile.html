@@ -42,10 +42,16 @@
                       </div>
                       <i class="fa fa-map-marker"  aria-hidden="true"></i>{{ post.location }}</p>
                       <p>Description: {{ post.text }}</p>
-                      <p>{{ post.created_at}}</p>
+                      {% comment %} <p>{{(today-post.created_at.date).days}}days ago </p> {% endcomment %}
+                      <p>{{ post.created_at.date}}</p>
                     </div>
         </div>
       </div>
+
+      {% empty %}
+
+      <h3>Time for your first post :)</h3>
+
       {% endfor %}
     
   </div>
@@ -64,7 +70,7 @@
         <form action="{% url 'post_create' %}" method="post">
           {% csrf_token %}
           {{post_form.as_p}}
-          <input type="submit" value="POST!">
+          <input id="post-btn" type="submit" value="POST!">
         
         </form>
        
