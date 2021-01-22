@@ -58,10 +58,10 @@
         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#postModal" role="button"><i class="fas fa-plus-circle fa-2x"></i></button>
       </div>
       {% for post in posts %}
-      <div class="card-post">
+      <div class="card-post quick-fix-cities-responsive">
         <div class="card-post-content">
                     <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-                    <div class="post-content-text">
+                    <div class="post-content-text quick-fix-cities-responsive">
                       <div class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a>
                         <span id="by">by {{post.user.username}}</span>
                       </div>

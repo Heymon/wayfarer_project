@@ -448,4 +448,30 @@ footer {
     .col-xs-12.col-lg-4{
         padding:0px 12px 12px 12px;
     }
+
+/* =======================CITIES PAGE==================================== */
+
+    .city-content-text{
+        position: absolute;
+        padding:2% 4%;
+    }
+
+    .img-thumbnail{
+
+        width: 250px;
+        height: 250px;
+    }
+
+    /* ========================POST on city================================ */
+
+    .card-post.quick-fix-cities-responsive{
+
+        margin: 0 0 0 -119px;
+    }
+
+    .post-content-text.quick-fix-cities-responsive{
+
+        width: 100%;
+    }
+    
 } 
