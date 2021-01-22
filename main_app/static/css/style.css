@@ -302,6 +302,13 @@ footer {
 #postTitle{
     color: #3B565E;
     text-decoration: none;
+    transition: linear .25s;
+}
+
+#postTitle:hover{
+    color: rgb(34, 168, 155);
+    text-decoration: none;
+    transform: scale(1.1)
 }
 
 .post-content-text>p:last-child{
@@ -562,14 +569,7 @@ footer {
     .btn.btn-warning{
         margin: 0px;
     }
-    #profile-picture{
-        width: 100%;
-    }
-    #profile-picture-container{
-        display: flex;
-        align-items: center;
-        padding:5% 30% 5% 30%;
-    }
+
     .row.container-fluid{
         margin: 0;
     }
