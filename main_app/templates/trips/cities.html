@@ -61,7 +61,7 @@
       <div class="card-post quick-fix-cities-responsive">
         <div class="card-post-content">
                     <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}">
-                    <div class="post-content-text">
+                    <div class="post-content-text quick-fix-cities-responsive">
                       <div class="post-content-title"><a id="postTitle" href="{% url 'show_post' post.id %}">{{ post.title }}</a>
                         <span id="by">by {{post.user.username}}</span>
                       </div>
@@ -98,7 +98,7 @@
           <p>{{post_form.text.label_tag}} {{post_form.text}}</p>
           <input type="hidden" name="location" id="id_location" value="{{city_page.id}}">
           <input type="hidden" name="redirect" id="redirect" value="{{city_page.id}}">
-          <input id="post" type="submit"  value="POST!"></a>
+          <input id="post-btn" type="submit"  value="POST!"></a>
         
         </form>
        

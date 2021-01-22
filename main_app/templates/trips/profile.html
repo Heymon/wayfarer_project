@@ -70,7 +70,7 @@
         <form action="{% url 'post_create' %}" method="post">
           {% csrf_token %}
           {{post_form.as_p}}
-          <input type="submit" value="POST!">
+          <input id="post-btn" type="submit" value="POST!">
         
         </form>
        

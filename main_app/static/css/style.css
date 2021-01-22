@@ -284,7 +284,7 @@ footer {
 }
 
 .post-content-text{
-    width: 73%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     padding: 0% 0% 0% 3%;
@@ -313,6 +313,7 @@ footer {
 }
 
 .card-post-content{
+    width: 100%;
     display: flex;
     flex-direction: row;
     padding: 3%;
@@ -326,7 +327,7 @@ footer {
 }
 
 
-#post{
+#post-btn{
     margin: 12px 0 0 0;
     background:white;
     display:inline-block;
@@ -586,12 +587,12 @@ footer {
 
     .card-post.quick-fix-cities-responsive{
 
-        margin: 0 0 0 -119px;
+        margin: 10px 0 0 -119px;
     }
 
-    .post-content-text.quick-fix-cities-responsive{
+    /* .post-content-text.quick-fix-cities-responsive{
 
         width: 100%;
-    }
+    } */
     
 } 
