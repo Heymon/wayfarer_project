@@ -7,12 +7,13 @@
 <div class="container">
   <div class="card-show">
     <div class="card-show-content">
-      <img id="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}"> 
+      <img id="post-img" class="post-img" src="{{post.user.profile.profile_img}}" alt="Photo of {{post.location}}"> 
         <div class="post-content-show-text">
-          <span class="post-content-title"><a href="{% url 'show_post' post.id %}">{{ post.title }}</a><br>
+          <span class="post-content-title"><a id="postTitle" href="{% url 'show_post' post.id %}">{{ post.title }}</a>
             <div id="by">by {{post.user.username}}</div></span> <br>
-              <p>location:  {{ post.location }}</p>
+            <p><i class="fa fa-map-marker"  aria-hidden="true">{{ post.location }}</i></p>
               <p>Description: <br> {{ post.text }}</p>
+              <p>{{ post.created_at}}</p>
 
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <button id="edit" type="button"  data-bs-toggle="modal" data-bs-target="#editModal">
