@@ -1,12 +1,14 @@
 
-modal = $("#signupModal");
+// modal = $("#signupModal");
 
-console.log(modal);
+// console.log(modal);
 
 const error = $(".errorlist")
 console.log(error)
 if (error.length !== 0) {
 
+    const modal = error.parents(".modal");
+    console.log(modal)
 
     console.log("error")
     // here it is calling the on ready function, so that it will only show the pop up once is loaded and ready
