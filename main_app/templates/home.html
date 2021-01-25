@@ -159,7 +159,7 @@
                 <p class="login error">{{login_error}}</p>
             {% endif %} {% endcomment %}
           <input id="login" type="submit" value="Log in">
-          {% comment %} <input type="hidden" name="next" value="{{next}}"> {% endcomment %}
+          <input type="hidden" name="next" value="{{request.GET.next}}">
       
         </form>
       </div>

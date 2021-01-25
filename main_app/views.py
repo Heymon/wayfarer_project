@@ -10,6 +10,9 @@ from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Po
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login
 
+# ============== AUTH =====================
+from django.contrib.auth.decorators import login_required
+
 # =============EMAIL===============
 from django.core.mail import EmailMessage, send_mail
 
@@ -53,7 +56,7 @@ def home (request):
     # context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form, 'signup_error': signup_error_message}
     return render(request, 'home.html', context)
 
-
+@login_required
 def profile(request):
     
     post_form = Post_Form
@@ -119,7 +122,7 @@ def custom_login(request):
         request.session['login_error'] = request.POST
         return redirect('home')
     
-
+@login_required
 def update(request):
     print('isnotvalid')
     user = request.user
@@ -140,7 +143,8 @@ def update(request):
     profile_form = Profile_Form(instance=user.profile)
     context = {'profile_form': profile_form, 'user_update_form': user_update_form}
     return render(request, 'trips/update.html', context)
-
+    
+@login_required
 def cities_detail(request, city_id):
     post_form = Post_Form
     cities = City.objects.all()
@@ -153,6 +157,7 @@ def cities_detail(request, city_id):
     context = {'cities': cities, 'posts': posts, 'city_page': city_page, 'post_form': post_form}
     return render(request, 'trips/cities.html', context)  
 
+@login_required
 def show_post(request, post_id):
     # print(post_id)
     post = Post.objects.get(id=post_id)
@@ -161,6 +166,7 @@ def show_post(request, post_id):
     context = {'post': post, 'post_form': post_form}
     return render(request, 'posts/show.html', context)
 
+@login_required
 def post_create(request):
     form = None
     direction = ''
@@ -184,6 +190,7 @@ def post_create(request):
         return redirect('cities_detail', direction)
     return redirect('profile')
 
+@login_required
 def posts_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.method =='POST':
@@ -196,6 +203,7 @@ def posts_edit(request, post_id):
     context = {'post_form': post_form, 'post': post}
     return render(request, 'posts/edit.html', context)
 
+@login_required
 def posts_delete(request, post_id):
     
     Post.objects.get(id=post_id).delete()

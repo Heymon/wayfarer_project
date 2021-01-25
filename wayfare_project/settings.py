@@ -122,6 +122,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOGIN_URL = '/'
 
 #Page that users go to once logged in
 LOGIN_REDIRECT_URL = '/profile/'
