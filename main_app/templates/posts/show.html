@@ -13,7 +13,7 @@
             <div id="by">by {{post.user.username}}</div></span> <br>
             <p><i class="fa fa-map-marker"  aria-hidden="true">{{ post.location }}</i></p>
               <p>Description: <br> {{ post.text }}</p>
-              <p>{{ post.created_at}}</p>
+              <p>{{ post.created_at.date}}</p>
 
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
               <button id="edit" type="button"  data-bs-toggle="modal" data-bs-target="#editModal">

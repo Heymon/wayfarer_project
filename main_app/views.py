@@ -1,5 +1,6 @@
 from django.core.files.base import ContentFile
 from django.http.request import QueryDict
+from django.http.response import HttpResponse
 
 from django.shortcuts import render, redirect
 
@@ -7,7 +8,10 @@ from django.shortcuts import render, redirect
 from main_app.models import Profile, Post, City
 from main_app.forms import Profile_Form, User_Profile_Form, User_Update_Form, Post_Form
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login
+from django.contrib.auth import authenticate, login
+
+# ============== AUTH =====================
+from django.contrib.auth.decorators import login_required
 
 # =============EMAIL===============
 from django.core.mail import EmailMessage, send_mail
@@ -24,8 +28,9 @@ from datetime import datetime, timezone
 import json
 
 def home (request):
-
-    authentication_form = AuthenticationForm()
+    # for key, value in request.session.items():
+    #     print('{} => {}'.format(key, value))
+    authentication_form = None
     user_form = None
     profile_form = None
     
@@ -38,12 +43,20 @@ def home (request):
     else:
         user_form = User_Profile_Form()
         profile_form = Profile_Form()
+
+    if 'login_error' in request.session:
+        # print(request.session['login_error'])
+        authentication_form = AuthenticationForm(data=request.session['login_error'])
+        # print(authentication_form)
+        del request.session['login_error']
+    else:
+        authentication_form = AuthenticationForm()
    
     context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form }
     # context = {'user_form': user_form, 'profile_form': profile_form, 'auth_form': authentication_form, 'signup_error': signup_error_message}
     return render(request, 'home.html', context)
 
-
+@login_required
 def profile(request):
     
     post_form = Post_Form
@@ -88,8 +101,28 @@ def signup(request):
             request.session['cur_profile'] = user_country
             request.session['signup_error'] = mutable_POST
             return redirect('home')
-    
 
+
+def custom_login(request):
+
+    authentication_form = AuthenticationForm(data=request.POST)
+    # print(authentication_form['username'])
+    # print(request.POST['username'])
+    
+    if authentication_form.is_valid():
+        print('valid')
+        # username = request.POST['username']
+        # password = request.POST['password']
+        user = authenticate(request, username=request.POST['username'], password=request.POST['password'])
+        login(request, user)
+        return redirect('profile')
+    else:
+        print('not valid')
+        # print(authentication_form)
+        request.session['login_error'] = request.POST
+        return redirect('home')
+    
+@login_required
 def update(request):
     print('isnotvalid')
     user = request.user
@@ -110,7 +143,8 @@ def update(request):
     profile_form = Profile_Form(instance=user.profile)
     context = {'profile_form': profile_form, 'user_update_form': user_update_form}
     return render(request, 'trips/update.html', context)
-
+    
+@login_required
 def cities_detail(request, city_id):
     post_form = Post_Form
     cities = City.objects.all()
@@ -123,6 +157,7 @@ def cities_detail(request, city_id):
     context = {'cities': cities, 'posts': posts, 'city_page': city_page, 'post_form': post_form}
     return render(request, 'trips/cities.html', context)  
 
+@login_required
 def show_post(request, post_id):
     # print(post_id)
     post = Post.objects.get(id=post_id)
@@ -131,6 +166,7 @@ def show_post(request, post_id):
     context = {'post': post, 'post_form': post_form}
     return render(request, 'posts/show.html', context)
 
+@login_required
 def post_create(request):
     form = None
     direction = ''
@@ -154,6 +190,7 @@ def post_create(request):
         return redirect('cities_detail', direction)
     return redirect('profile')
 
+@login_required
 def posts_edit(request, post_id):
     post = Post.objects.get(id=post_id)
     if request.method =='POST':
@@ -166,6 +203,7 @@ def posts_edit(request, post_id):
     context = {'post_form': post_form, 'post': post}
     return render(request, 'posts/edit.html', context)
 
+@login_required
 def posts_delete(request, post_id):
     
     Post.objects.get(id=post_id).delete()
