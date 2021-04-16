@@ -34,9 +34,9 @@ class Profile_Form(ModelForm):
         labels = {'cur_city': 'Current City'}
         fields = ['cur_city',]
 
-class AuthenticationFormWithInactiveUsersOkay(AuthenticationForm):
-    def confirm_login_allowed(self, user):
-        pass
+# class AuthenticationFormWithInactiveUsersOkay(AuthenticationForm):
+#     def confirm_login_allowed(self, user):
+#         pass
         
 class User_Update_Form(ModelForm):
     first_name = forms.CharField(label= "First Name")
